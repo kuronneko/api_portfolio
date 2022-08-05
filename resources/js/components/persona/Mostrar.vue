@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                         <div class="card bg-dark text-white">
                             <div class="card-header">
-                <router-link :to='{ name: "crearPersona" }' class="btn btn-info text-white">Nueva Persona</router-link>
+                <router-link :to='{ name: "crearPersona" }' class="btn btn-info text-white">New Persona</router-link>
                             </div>
                             <div class="card-body">
                 <div class="table-responsive">
@@ -12,9 +12,14 @@
                         <thead class="bg-dark text-white">
                             <tr>
                                 <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Contenido</th>
-                                <th>Acciones</th>
+                                <th>Name</th>
+                                <th>Lastname</th>
+                                <th>Github</th>
+                                <th>WhatsApp</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Last Updated</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,11 +28,16 @@
                                 <td>{{ persona.id }}</td>
                                 <td>{{ persona.name }}</td>
                                 <td>{{ persona.lastname }}</td>
+                                <td>{{ persona.github }}</td>
+                                <td>{{ persona.whatsapp }}</td>
+                                <td>{{ persona.email }}</td>
+                                <td>{{ persona.location }}</td>
+                                <td>{{ persona.updated_at }}</td>
                                 <td>
                                     <div class="btn-group">
                                     <router-link :to='{ name: "editarPersona", params: { id: persona.id } }' class="btn btn-info text-white">
-                                        Editar</router-link>
-                                    <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Borrar</a>
+                                        Edit</router-link>
+                                    <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -66,7 +76,7 @@ export default {
                 })
         },
         borrarPersona(id) {
-            if (confirm("Confirmar eliminar el registro?")) {
+            if (confirm("Do you want to delete this entry?")) {
                 this.axios.delete(`/api/persona/${id}`)
                     .then(response => {
                         this.mostrarPersonas()

@@ -1,15 +1,7 @@
 <?php
 
 return [
-    'api' => [
 
-        //for API authentication with Passport
-
-        'driver' => 'passport',
-
-        'provider' => 'users',
-
-    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

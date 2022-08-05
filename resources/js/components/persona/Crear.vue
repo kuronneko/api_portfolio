@@ -1,28 +1,43 @@
 <template>
     <div class="container mt-4">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card bg-dark text-white">
-                    <div class="card-header">
-                        <h4>Crear Blog</h4>
+                     <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4>Create new Persona</h4>
+                        <router-link to="/home" class="btn btn-info btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="crear">
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <div class="form-group">
-                                        <label for="">Titulo</label>
-                                        <input type="text" class="form-control" v-model="blog.titulo">
+                                        <label for="">Name</label>
+                                        <input type="text" class="form-control" v-model="persona.name">
                                     </div>
-                                </div>
-                                <div class="col-md-12 mb-2">
-                                    <label for="floatingTextarea2">Contenido</label>
-                                    <div class="form-floating">
-                                        <textarea cols="30" rows="10" class="form-control" id="floatingTextarea2" v-model="blog.contenido"></textarea>
+                                    <div class="form-group">
+                                        <label for="">Lastname</label>
+                                        <input type="text" class="form-control" v-model="persona.lastname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Github</label>
+                                        <input type="text" class="form-control" v-model="persona.github">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">WhatsApp</label>
+                                        <input type="text" class="form-control" v-model="persona.whatsapp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Email</label>
+                                        <input type="text" class="form-control" v-model="persona.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Location</label>
+                                        <input type="text" class="form-control" v-model="persona.location">
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-info text-white">Guardar</button>
+                                    <button type="submit" class="btn btn-info btn-block text-white">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -35,24 +50,28 @@
 
 <script>
 export default {
-    name:"crear-blog",
-    data(){
-        return{
-            blog:{
-                titulo:"",
-                contenido:""
+    name: "crear-persona",
+    data() {
+        return {
+            persona: {
+                name: "",
+                lastname: "",
+                github: "",
+                whatsapp: "",
+                email: "",
+                location: "",
             }
         }
     },
-    methods:{
-        async crear(){
-            await this.axios.post('/api/blog', this.blog)
-            .then(response=>{
-                this.$router.push({name:"mostrarBlogs"})
-            })
-            .catch(error=>{
-                console.log(error)
-            })
+    methods: {
+        async crear() {
+            await this.axios.post('/api/persona', this.persona)
+                .then(response => {
+                    this.$router.push({ name: "mostrarPersonas" })
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     }
 }
