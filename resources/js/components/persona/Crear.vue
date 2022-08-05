@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-md-4">
                 <div class="card bg-dark text-white">
                      <div class="card-header d-flex justify-content-between align-items-center">
                         <h4>Create new Persona</h4>
