@@ -18,7 +18,7 @@ class CreatePersonasTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('github');
-            $table->integer('whatsapp');
+            $table->bigInteger('whatsapp');
             $table->string('email');
             $table->string('location');
             $table->timestamps();
