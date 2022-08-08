@@ -21,6 +21,7 @@ class CreatePersonasTable extends Migration
             $table->bigInteger('whatsapp');
             $table->string('email');
             $table->string('location');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

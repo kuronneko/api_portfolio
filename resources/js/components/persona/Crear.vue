@@ -5,7 +5,7 @@
                 <div class="card bg-dark text-white">
                      <div class="card-header d-flex justify-content-between align-items-center">
                         <h4>Create new Persona</h4>
-                        <router-link to="/home" class="btn btn-info btn-sm text-white">Back</router-link>
+                        <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="crear">
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-info btn-block text-white">Save</button>
+                                    <button type="submit" class="btn btn-success btn-block text-white">Save</button>
                                 </div>
                             </div>
                         </form>

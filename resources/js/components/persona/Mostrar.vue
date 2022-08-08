@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                         <div class="card bg-dark text-white">
                             <div class="card-header">
-                <router-link :to='{ name: "crearPersona" }' class="btn btn-info text-white">New Persona</router-link>
+                <router-link :to='{ name: "crearPersona" }' class="btn btn-success text-white">New Persona</router-link>
                             </div>
                             <div class="card-body">
                 <div class="table-responsive">
@@ -19,7 +19,8 @@
                                 <th>Email</th>
                                 <th>Location</th>
                                 <th>Last Updated</th>
-                                <th></th>
+                                <th>Status</th>
+                                <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,10 +35,14 @@
                                 <td>{{ persona.location }}</td>
                                 <td>{{ persona.updated_at }}</td>
                                 <td>
+                                    <a v-if="persona.status == 1" type="button" @click="statusPersona(persona.id)" class="btn btn-success">Active</a>
+                                    <a v-if="persona.status == 0" type="button" @click="statusPersona(persona.id)" class="btn btn-dark">Disable</a>
+                                </td>
+                                <td>
                                     <div class="btn-group">
-                                    <router-link :to='{ name: "editarPersona", params: { id: persona.id } }' class="btn btn-info text-white">
+                                    <router-link :to='{ name: "editarPersona", params: { id: persona.id } }' class="btn btn-success text-white">
                                         Edit</router-link>
-                                    <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Delete</a>
+                                        <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -85,6 +90,15 @@ export default {
                         console(error)
                     })
             }
+        },
+                statusPersona(id) {
+                this.axios.put(`/api/persona/status/${id}`)
+                    .then(response => {
+                        this.mostrarPersonas()
+                    })
+                    .catch(error => {
+                        console(error)
+                    })
         }
     }
 }

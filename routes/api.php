@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->group( function(){
     Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+    Route::put('persona/status/{persona}', [App\Http\Controllers\PersonaController::class, 'status'])->name('persona.status');
 });
-Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['show']);
+Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
+//Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['show']);
 
 
 

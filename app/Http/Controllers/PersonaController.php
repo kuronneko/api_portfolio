@@ -54,6 +54,18 @@ class PersonaController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getActivePersona()
+    {
+        $persona = Persona::where('status', 1)->first();
+        return response()->json($persona);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -78,6 +90,33 @@ class PersonaController extends Controller
             'persona' => $persona,
         ]);
     }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function status(Persona $persona)
+    {
+        if($persona->status == 1){
+            $persona->status = 0;
+        }else{
+            $persona->status = 1;
+            foreach(Persona::all() as $personas){
+                if($personas != $persona){
+                    $personas->status = 0;
+                    $personas->save();
+                }
+            }
+        }
+        $persona->save();
+        return response()->json([
+            'persona' => $persona,
+        ]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
