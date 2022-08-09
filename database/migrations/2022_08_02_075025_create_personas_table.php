@@ -18,6 +18,8 @@ class CreatePersonasTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('github');
+            $table->string('instagram');
+            $table->string('twitter');
             $table->bigInteger('whatsapp');
             $table->string('email');
             $table->string('location');

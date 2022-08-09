@@ -24,6 +24,14 @@
                                         <input type="text" class="form-control" v-model="persona.github">
                                     </div>
                                     <div class="form-group">
+                                        <label for="">Instagram</label>
+                                        <input type="text" class="form-control" v-model="persona.instagram">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Twitter</label>
+                                        <input type="text" class="form-control" v-model="persona.twitter">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="">WhatsApp</label>
                                         <input type="text" class="form-control" v-model="persona.whatsapp">
                                     </div>
@@ -57,6 +65,8 @@ export default {
                 name: "",
                 lastname: "",
                 github: "",
+                instagram: "",
+                twitter: "",
                 whatsapp: "",
                 email: "",
                 location: "",

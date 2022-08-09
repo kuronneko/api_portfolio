@@ -15,12 +15,14 @@
                                 <th>Name</th>
                                 <th>Lastname</th>
                                 <th>Github</th>
+                                <th>Instagram</th>
+                                <th>Twitter</th>
                                 <th>WhatsApp</th>
                                 <th>Email</th>
                                 <th>Location</th>
-                                <th>Last Updated</th>
                                 <th>Status</th>
                                 <th>Options</th>
+                                <th>Last Updated</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,10 +32,11 @@
                                 <td>{{ persona.name }}</td>
                                 <td>{{ persona.lastname }}</td>
                                 <td>{{ persona.github }}</td>
+                                <td>{{ persona.instagram }}</td>
+                                <td>{{ persona.twitter }}</td>
                                 <td>{{ persona.whatsapp }}</td>
                                 <td>{{ persona.email }}</td>
                                 <td>{{ persona.location }}</td>
-                                <td>{{ persona.updated_at }}</td>
                                 <td>
                                     <a v-if="persona.status == 1" type="button" @click="statusPersona(persona.id)" class="btn btn-success">Active</a>
                                     <a v-if="persona.status == 0" type="button" @click="statusPersona(persona.id)" class="btn btn-dark">Disable</a>
@@ -45,6 +48,7 @@
                                         <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
+                                <td>{{ persona.updated_at }}</td>
                             </tr>
                         </tbody>
                     </table>

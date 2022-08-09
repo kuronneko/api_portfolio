@@ -24,6 +24,14 @@
                                         <input type="text" class="form-control" v-model="persona.github">
                                     </div>
                                     <div class="form-group">
+                                        <label for="">Instagram</label>
+                                        <input type="text" class="form-control" v-model="persona.instagram">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Twitter</label>
+                                        <input type="text" class="form-control" v-model="persona.twitter">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="">WhatsApp</label>
                                         <input type="text" class="form-control" v-model="persona.whatsapp">
                                     </div>
@@ -57,6 +65,8 @@ export default {
                 name: "",
                 lastname: "",
                 github: "",
+                instagram: "",
+                twitter: "",
                 whatsapp: "",
                 email: "",
                 location: "",
@@ -70,10 +80,12 @@ export default {
         async mostrarPersona(){
             await this.axios.get(`/api/persona/${this.$route.params.id}`)
             .then(response=>{
-                const {name,lastname,github,whatsapp,email,location} = response.data
+                const {name,lastname,github,instagram,twitter,whatsapp,email,location} = response.data
                 this.persona.name = name,
                 this.persona.lastname = lastname,
                 this.persona.github = github,
+                this.persona.instagram = instagram,
+                this.persona.twitter = twitter,
                 this.persona.whatsapp = whatsapp,
                 this.persona.email = email,
                 this.persona.location = location
