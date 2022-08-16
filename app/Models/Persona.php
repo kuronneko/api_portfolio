@@ -22,19 +22,17 @@ class Persona extends Model
 
     public function skills()
     {
-        return $this->hasMany(Skill::class, 'skill_id');
+        return $this->hasMany(Skill::class);
     }
 
     public function projects()
     {
-        return $this->hasMany(Project::class, 'project_id');
+        return $this->hasMany(Project::class);
     }
 
     public function socials()
     {
-        return $this->hasMany(Social::class, 'social_id');
+        return $this->hasMany(Social::class);
     }
-
-
 
 }

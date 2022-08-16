@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','country_id'];
+    protected $fillable = ['country_id','name'];
 
     public function country()
     {
@@ -17,7 +17,7 @@ class City extends Model
 
     public function personas()
     {
-        return $this->hasMany(Persona::class, 'persona_id');
+        return $this->hasMany(Persona::class);
     }
 
 }

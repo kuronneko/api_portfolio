@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','persona_id','title','description','status'];
+    protected $fillable = ['persona_id','name','title','description','status'];
 
     public function persona(){
         return $this->belongsTo(Persona::class, 'persona_id');
@@ -16,7 +16,7 @@ class Project extends Model
 
     public function detail()
     {
-        return $this->hasOne(Detail::class, 'detail_id');
+        return $this->hasOne(Detail::class);
     }
 
 

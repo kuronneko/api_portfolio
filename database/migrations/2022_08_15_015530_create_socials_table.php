@@ -18,7 +18,7 @@ class CreateSocialsTable extends Migration
             $table->unsignedBigInteger('persona_id');
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->string('name');
-            $table->string('url');
+            $table->string('content');
             $table->timestamps();
         });
     }

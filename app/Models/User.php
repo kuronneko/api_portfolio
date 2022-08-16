@@ -14,7 +14,7 @@ class User extends Authenticatable
 
     public function personas()
     {
-        return $this->hasMany(Persona::class, 'persona_id');
+        return $this->hasMany(Persona::class);
     }
 
     /**

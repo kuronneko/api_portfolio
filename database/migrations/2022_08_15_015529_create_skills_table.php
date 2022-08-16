@@ -18,7 +18,7 @@ class CreateSkillsTable extends Migration
             $table->unsignedBigInteger('persona_id');
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->string('name');
-            $table->integer('quality');
+            $table->integer('level');
             $table->timestamps();
         });
     }
