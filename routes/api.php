@@ -23,7 +23,8 @@ Route::middleware('auth:api')->group( function(){
     Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::put('persona/status/{persona}', [App\Http\Controllers\PersonaController::class, 'status'])->name('persona.status');
 });
-Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
+//Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
+Route::get('persona/get/{email}', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
 //Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['show']);
 
 

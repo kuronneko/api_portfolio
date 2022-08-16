@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Persona;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PersonaController extends Controller
@@ -53,15 +54,29 @@ class PersonaController extends Controller
         return response()->json($persona);
     }
 
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*
     public function getActivePersona()
     {
         $persona = Persona::where('status', 1)->first();
+        return response()->json($persona);
+    }
+    */
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getActivePersona($email)
+    {
+        $persona = Persona::with(['user','city.country','skills','socials','projects.detail'])->where('status', 1)->where('user_id', User::where('email', $email)->first()->id)->first();
         return response()->json($persona);
     }
 
