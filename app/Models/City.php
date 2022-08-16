@@ -17,7 +17,7 @@ class City extends Model
 
     public function personas()
     {
-        return $this->hasMany(Persona::class, 'city_id');
+        return $this->hasMany(Persona::class, 'persona_id');
     }
 
 }

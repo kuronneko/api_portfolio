@@ -10,6 +10,11 @@ class Persona extends Model
     use HasFactory;
     protected $fillable = ['name','lastname','title','description','about','status','experience','city_id'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');
@@ -17,17 +22,17 @@ class Persona extends Model
 
     public function skills()
     {
-        return $this->hasMany(Skill::class, 'persona_id');
+        return $this->hasMany(Skill::class, 'skill_id');
     }
 
     public function projects()
     {
-        return $this->hasMany(Project::class, 'persona_id');
+        return $this->hasMany(Project::class, 'project_id');
     }
 
-    public function social()
+    public function socials()
     {
-        return $this->hasOne(Social::class, 'persona_id');
+        return $this->hasMany(Social::class, 'social_id');
     }
 
 
