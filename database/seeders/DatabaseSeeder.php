@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Detail;
 use App\Models\Persona;
 use App\Models\Project;
 use App\Models\Skill;
@@ -23,7 +24,33 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        $user = User::create([
+        /////// Country and Cities ///////
+        $country = Country::create([
+            'name' => 'Chile',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $country2 = Country::create([
+            'name' => 'Czech Republic',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $city = City::create([
+            'name' => 'Calama',
+            'country_id' => $country->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $city2 = City::create([
+            'name' => 'Prague',
+            'country_id' => $country2->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        ////////////// Users ///////////////
+
+        $user1 = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('conchetukek'),
@@ -31,25 +58,256 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'email_verified_at' => now(),
         ]);
-
-        $country = Country::create([
-            'name' => 'Chile',
+        $user2 = User::create([
+            'name' => 'Admin2',
+            'email' => 'admin2@gmail.com',
+            'password' => bcrypt('conchetukek'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'email_verified_at' => now(),
         ]);
 
-        $city = City::create([
-            'name' => 'Santiago',
-            'country_id' => $country->id,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
+        /////// Persona1, Project1 ///////
 
-        $persona = Persona::create([
+        $persona1 = Persona::create([
             'city_id' => $city->id,
-            'user_id' => $user->id,
+            'user_id' => $user1->id,
             'name' => 'Alfonso',
             'lastname' => 'Castillo',
+            'title' => 'Full-Stack Developer',
+            'description' => 'Designing, developing and deploying modern Web Apps.
+            LAMP Stack Specialist.',
+            'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
+            I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
+            Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
+            Linux skills, cloud services, LAMP Stack.',
+            'status' => 1,
+            'experience' => 4,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Social::create([
+            'persona_id' => $persona1->id,
+            'name' => 'GitHub',
+            'content' => 'https://github.com/kuronneko',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Twitter',
+            'content' => 'https://twitter.com/kuronnekos',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Instagram',
+            'content' => 'https://twitter.com/kuronnekos',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Email',
+            'content' => 'aecastillodev@gmail.com',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona1->id,
+            'name' => 'WhatsApp',
+            'content' => '56964599188',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'PHP',
+            'level' => 98,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'JAVA',
+            'level' => 90,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'SQL',
+            'level' => 90,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Laravel',
+            'level' => 98,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Livewire',
+            'level' => 98,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'SpringBoot',
+            'level' => 30,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'HTML',
+            'level' => 90,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'CSS',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Javascript',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'AlpineJS',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Bootstrap',
+            'level' => 100,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Jquery',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'VueJS',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Figma',
+            'level' => 30,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Powerdesigner',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'GIMP',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Linux',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Apache',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona1->id,
+            'name' => 'MySQL',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project1_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'cbpw',
+            'title' => 'Cbpw gallery engine type-blog',
+            'description' => 'Cbpw allows you to create an album and upload images.
+            Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project1_p1->id,
+            'description' => 'Admin Panel and Permissions System',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p1->id,
+            'description' => 'Relational Database design from Scratch',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p1->id,
+            'description' => 'Dropzone to upload images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p1->id,
+            'description' => 'Front-end developed with Boostrap 4 and Livewire to asyncronous
+            request. Masonry, FancyBox and Infinite Scroll use to show Images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p1->id,
+            'description' => 'Image render with thumbnail generator using Intervention Image
+            2.0, and Laravel-FFMPEG/Lakshmaji-Thumbnail to generate thumbnails from Videos',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+
+           /////// Persona2, Project2 ///////
+
+        $persona2 = Persona::create([
+            'city_id' => $city2->id,
+            'user_id' => $user1->id,
+            'name' => 'Sebastian',
+            'lastname' => 'Václav',
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
@@ -64,55 +322,214 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Social::create([
-            'persona_id' => $persona->id,
-            'name' => 'Github',
+            'persona_id' => $persona2->id,
+            'name' => 'GitHub',
             'content' => 'https://github.com/kuronneko',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
-            'persona_id' => $persona->id,
-            'name' => 'Email',
-            'content' => 'aecastillodev@gmail.com',
+            'persona_id' => $persona2->id,
+            'name' => 'Twitter',
+            'content' => 'https://twitter.com/kuronnekos',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
-            'persona_id' => $persona->id,
+            'persona_id' => $persona2->id,
+            'name' => 'Instagram',
+            'content' => 'https://twitter.com/kuronnekos',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Email',
+            'content' => 'sebastianvaclav@proton.me',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Social::create([
+            'persona_id' => $persona2->id,
             'name' => 'WhatsApp',
-            'content' => '56964599188',
+            'content' => '56943497798',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         Skill::create([
-            'persona_id' => $persona->id,
+            'persona_id' => $persona2->id,
             'name' => 'PHP',
-            'level' => 99,
+            'level' => 98,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Skill::create([
-            'persona_id' => $persona->id,
+            'persona_id' => $persona2->id,
             'name' => 'JAVA',
             'level' => 90,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Skill::create([
-            'persona_id' => $persona->id,
+            'persona_id' => $persona2->id,
+            'name' => 'SQL',
+            'level' => 90,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Laravel',
+            'level' => 98,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Livewire',
+            'level' => 98,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'SpringBoot',
+            'level' => 30,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'HTML',
+            'level' => 90,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'CSS',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
             'name' => 'Javascript',
-            'level' => 99,
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'AlpineJS',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Bootstrap',
+            'level' => 100,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Jquery',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'VueJS',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Figma',
+            'level' => 30,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Powerdesigner',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'GIMP',
+            'level' => 50,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Linux',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Apache',
+            'level' => 80,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Skill::create([
+            'persona_id' => $persona2->id,
+            'name' => 'MySQL',
+            'level' => 80,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        $project = Project::create([
-            'persona_id' => $persona->id,
+        $project1_p2 = Project::create([
+            'persona_id' => $persona2->id,
             'name' => 'cbpw',
             'title' => 'Cbpw gallery engine type-blog',
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project1_p2->id,
+            'description' => 'Admin Panel and Permissions System',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p2->id,
+            'description' => 'Relational Database design from Scratch',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p2->id,
+            'description' => 'Dropzone to upload images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p2->id,
+            'description' => 'Front-end developed with Boostrap 4 and Livewire to asyncronous
+            request. Masonry, FancyBox and Infinite Scroll use to show Images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project1_p2->id,
+            'description' => 'Image render with thumbnail generator using Intervention Image
+            2.0, and Laravel-FFMPEG/Lakshmaji-Thumbnail to generate thumbnails from Videos',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
