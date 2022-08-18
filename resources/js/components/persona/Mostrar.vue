@@ -2,59 +2,65 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-lg-12">
-                        <div class="card bg-dark text-white">
-                            <div class="card-header">
-                <router-link :to='{ name: "crearPersona" }' class="btn btn-success text-white">New Persona</router-link>
-                            </div>
-                            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-dark table-hover">
-                        <thead class="bg-dark text-white">
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Lastname</th>
-                                <th>Github</th>
-                                <th>Instagram</th>
-                                <th>Twitter</th>
-                                <th>WhatsApp</th>
-                                <th>Email</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th>Options</th>
-                                <th>Last Updated</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <router-link :to='{ name: "crearPersona" }' class="btn btn-success text-white">New Persona
+                        </router-link>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover">
+                                <thead class="bg-dark text-white">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Lastname</th>
+                                        <th>Github</th>
+                                        <th>Instagram</th>
+                                        <th>Twitter</th>
+                                        <th>WhatsApp</th>
+                                        <th>Email</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Options</th>
+                                        <th>Last Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            <tr v-for="persona in personas" :key="persona.id">
-                                <td>{{ persona.id }}</td>
-                                <td>{{ persona.name }}</td>
-                                <td>{{ persona.lastname }}</td>
-                                <td>{{ persona.github }}</td>
-                                <td>{{ persona.instagram }}</td>
-                                <td>{{ persona.twitter }}</td>
-                                <td>{{ persona.whatsapp }}</td>
-                                <td>{{ persona.email }}</td>
-                                <td>{{ persona.location }}</td>
-                                <td>
-                                    <a v-if="persona.status == 1" type="button" @click="statusPersona(persona.id)" class="btn btn-success">Active</a>
-                                    <a v-if="persona.status == 0" type="button" @click="statusPersona(persona.id)" class="btn btn-dark">Disable</a>
-                                </td>
-                                <td>
-                                    <div class="btn-group">
-                                    <router-link :to='{ name: "editarPersona", params: { id: persona.id } }' class="btn btn-success text-white">
-                                        Edit</router-link>
-                                        <a type="button" @click="borrarPersona(persona.id)" class="btn btn-danger">Delete</a>
-                                    </div>
-                                </td>
-                                <td>{{ persona.updated_at }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                            </div>
+                                    <tr v-for="persona in personas" :key="persona.id">
+
+                                        <td>{{ persona.id }}</td>
+                                        <td>{{ persona.name }}</td>
+                                        <td>{{ persona.lastname }}</td>
+                                        <td>{{ getSocialsContent(persona, 'GitHub') }}</td>
+                                        <td>{{ getSocialsContent(persona, 'Instagram') }}</td>
+                                        <td>{{ getSocialsContent(persona, 'Twitter') }}</td>
+                                        <td>{{ getSocialsContent(persona, 'WhatsApp') }}</td>
+                                        <td>{{ getSocialsContent(persona, 'Email') }}</td>
+                                        <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
+                                        <td>
+                                            <a v-if="persona.status == 1" type="button"
+                                                @click="statusPersona(persona.id)" class="btn btn-success">Active</a>
+                                            <a v-if="persona.status == 0" type="button"
+                                                @click="statusPersona(persona.id)" class="btn btn-dark">Disable</a>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <router-link :to='{ name: "editarPersona", params: { id: persona.id } }'
+                                                    class="btn btn-success text-white">
+                                                    Edit</router-link>
+                                                <a type="button" @click="borrarPersona(persona.id)"
+                                                    class="btn btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                        <td>{{ persona.updated_at }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,15 +101,25 @@ export default {
                     })
             }
         },
-                statusPersona(id) {
-                this.axios.put(`/api/persona/status/${id}`)
-                    .then(response => {
-                        this.mostrarPersonas()
-                    })
-                    .catch(error => {
-                        console(error)
-                    })
+        statusPersona(id) {
+            this.axios.put(`/api/persona/status/${id}`)
+                .then(response => {
+                    this.mostrarPersonas()
+                })
+                .catch(error => {
+                    console(error)
+                })
+        },
+
+        getSocialsContent(data, socialName) {
+            let socialNameContent = data.socials.filter(({ name }) => name.includes(socialName) ?? false);
+            if (socialNameContent.length > 0) {
+                return socialNameContent[0].content;
+            } else {
+                return '';
+            }
         }
+
     }
 }
 </script>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Persona;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PersonaController extends Controller
 {
@@ -14,7 +17,7 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $personas = Persona::all();
+        $personas = Persona::with(['user','city.country','skills','socials','projects.detail'])->where('user_id', Auth::user()->id)->get();
         return response()->json($personas);
     }
 
@@ -53,16 +56,35 @@ class PersonaController extends Controller
         return response()->json($persona);
     }
 
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*
     public function getActivePersona()
     {
         $persona = Persona::where('status', 1)->first();
         return response()->json($persona);
+    }
+    */
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getActivePersona($email)
+    {
+        try {
+            $persona = Persona::with(['user','city.country','skills','socials','projects.detail'])->where('status', 1)->where('user_id', User::where('email', $email)->first()->id)->first();
+            return response()->json($persona);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+
     }
 
     /**
@@ -104,7 +126,7 @@ class PersonaController extends Controller
             $persona->status = 0;
         }else{
             $persona->status = 1;
-            foreach(Persona::all() as $personas){
+            foreach(Persona::where('user_id', Auth::user()->id)->get() as $personas){
                 if($personas != $persona){
                     $personas->status = 0;
                     $personas->save();
