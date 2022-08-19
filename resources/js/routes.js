@@ -2,6 +2,7 @@
 const Mostrar = ()=> import('./components/persona/Mostrar.vue');
 const Crear = ()=> import('./components/persona/Crear.vue');
 const Editar = ()=> import('./components/persona/Editar.vue');
+const projectPersona = ()=> import('./components/persona/project/Mostrar.vue');
 
 
 export const routes = [
@@ -19,5 +20,10 @@ export const routes = [
         name: 'editarPersona',
         path: '/home/editar/:id',
         component:Editar
+    },
+       {
+        name: 'projectPersona',
+        path: '/home/project/persona/:id',
+        component:projectPersona
     },
 ];

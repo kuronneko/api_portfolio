@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-4">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card bg-dark text-white">

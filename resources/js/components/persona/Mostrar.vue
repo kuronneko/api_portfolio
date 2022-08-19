@@ -1,10 +1,10 @@
 <template>
-    <div class="container mt-4">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card bg-dark text-white">
                     <div class="card-header">
-                        <router-link :to='{ name: "crearPersona" }' class="btn btn-success text-white">New Persona
+                        <router-link :to='{ name: "crearPersona" }' class="btn btn-sm btn-success text-white">New Persona
                         </router-link>
                     </div>
                     <div class="card-body">
@@ -41,17 +41,20 @@
                                         <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
                                         <td>
                                             <a v-if="persona.status == 1" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-success">Active</a>
+                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-success">A</a>
                                             <a v-if="persona.status == 0" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-dark">Disable</a>
+                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark">D</a>
                                         </td>
                                         <td>
                                             <div class="btn-group">
                                                 <router-link :to='{ name: "editarPersona", params: { id: persona.id } }'
-                                                    class="btn btn-success text-white">
-                                                    Edit</router-link>
+                                                    class="btn btn-sm btn-success text-white">
+                                                    E</router-link>
                                                 <a type="button" @click="borrarPersona(persona.id)"
-                                                    class="btn btn-danger">Delete</a>
+                                                    class="btn btn-sm btn-danger">D</a>
+                                                       <router-link :to='{ name: "projectPersona", params: { id: persona.id } }'
+                                                    class="btn btn-sm btn-success text-white">
+                                                    P</router-link>
                                             </div>
                                         </td>
                                         <td>{{ persona.updated_at }}</td>
