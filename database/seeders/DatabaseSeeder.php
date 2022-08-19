@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona1->id,
             'name' => 'Instagram',
-            'content' => 'https://twitter.com/kuronnekos',
+            'content' => 'https://www.instagram.com/cbpwxyz',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -259,10 +259,11 @@ class DatabaseSeeder extends Seeder
 
         $project1_p1 = Project::create([
             'persona_id' => $persona1->id,
-            'name' => 'cbpw',
+            'name' => 'Cbpw',
             'title' => 'Cbpw gallery engine type-blog',
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
+            'status' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -300,6 +301,170 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
+        $project2_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Sexygatitas',
+            'title' => 'Sexygatitas',
+            'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project2_p1->id,
+            'description' => 'Nekasprototype(code name) was developed using the Cbpw gallery engine type-blog [2.22070] as a base and modified as per requirements',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p1->id,
+            'description' => 'WaterMarks Support using Intervention Image 2.0',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p1->id,
+            'description' => 'Resized Images to optimice loading times using Intervention Image 2.0',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p1->id,
+            'description' => 'Register UI was fully developed using Livewire',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project3_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Javparadise',
+            'title' => 'Javparadise',
+            'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project3_p1->id,
+            'description' => 'Javparadise was developed using the Cbpw gallery engine type-blog [2.22360] as a base and modified as per requirements',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p1->id,
+            'description' => 'Modified relational database to supports tags, categories and studios with a many to many relationship',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p1->id,
+            'description' => 'Amazing bar filter fully developed with Livewire',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project4_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'Kuro2et',
+            'title' => 'Kuroneko EncrypterTool',
+            'description' => 'Simple algorithm for encrypting text, based on the hexadecimal system. This console application works as a password manager using the kuro algorithm to encrypt text and store it in a database.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project4_p1->id,
+            'description' => 'Algorithm written from scratch using raw JAVA',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p1->id,
+            'description' => 'Has a GUI Swing version',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project5_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => '3lectrotel',
+            'title' => '3lectrotel',
+            'description' => 'Web App that allows you to generate statistical graphs of the information obtained through report forms.
+            Old App built with raw PHP.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project5_p1->id,
+            'description' => 'Developed from scratch using raw PHP, bootstrap 4 and Jquery',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p1->id,
+            'description' => 'HighCharts Library to show statistical graphics',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p1->id,
+            'description' => 'Advanced SQL queries',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
            /////// Persona2, Project2 ///////
 
@@ -338,7 +503,7 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona2->id,
             'name' => 'Instagram',
-            'content' => 'https://twitter.com/kuronnekos',
+            'content' => 'https://www.instagram.com/cbpwxyz',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -493,10 +658,11 @@ class DatabaseSeeder extends Seeder
 
         $project1_p2 = Project::create([
             'persona_id' => $persona2->id,
-            'name' => 'cbpw',
+            'name' => 'Cbpw',
             'title' => 'Cbpw gallery engine type-blog',
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
+            'status' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -530,6 +696,171 @@ class DatabaseSeeder extends Seeder
             'project_id' => $project1_p2->id,
             'description' => 'Image render with thumbnail generator using Intervention Image
             2.0, and Laravel-FFMPEG/Lakshmaji-Thumbnail to generate thumbnails from Videos',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project2_p2 = Project::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Sexygatitas',
+            'title' => 'Sexygatitas',
+            'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project2_p2->id,
+            'description' => 'Nekasprototype(code name) was developed using the Cbpw gallery engine type-blog [2.22070] as a base and modified as per requirements',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p2->id,
+            'description' => 'WaterMarks Support using Intervention Image 2.0',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p2->id,
+            'description' => 'Resized Images to optimice loading times using Intervention Image 2.0',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p2->id,
+            'description' => 'Register UI was fully developed using Livewire',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project2_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project3_p2 = Project::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Javparadise',
+            'title' => 'Javparadise',
+            'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project3_p2->id,
+            'description' => 'Javparadise was developed using the Cbpw gallery engine type-blog [2.22360] as a base and modified as per requirements',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p2->id,
+            'description' => 'Modified relational database to supports tags, categories and studios with a many to many relationship',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p2->id,
+            'description' => 'Amazing bar filter fully developed with Livewire',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project3_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project4_p2 = Project::create([
+            'persona_id' => $persona2->id,
+            'name' => 'Kuro2et',
+            'title' => 'Kuroneko EncrypterTool',
+            'description' => 'Simple algorithm for encrypting text, based on the hexadecimal system. This console application works as a password manager using the kuro algorithm to encrypt text and store it in a database.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project4_p2->id,
+            'description' => 'Algorithm written from scratch using raw JAVA',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p2->id,
+            'description' => 'Has a GUI Swing version',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project4_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project5_p2 = Project::create([
+            'persona_id' => $persona2->id,
+            'name' => '3lectrotel',
+            'title' => '3lectrotel',
+            'description' => 'Web App that allows you to generate statistical graphs of the information obtained through report forms.
+            Old App built with raw PHP.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project5_p2->id,
+            'description' => 'Developed from scratch using raw PHP, bootstrap 4 and Jquery',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p2->id,
+            'description' => 'HighCharts Library to show statistical graphics',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p2->id,
+            'description' => 'Advanced SQL queries',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project5_p2->id,
+            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
