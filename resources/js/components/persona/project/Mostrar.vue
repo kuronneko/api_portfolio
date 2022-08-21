@@ -32,14 +32,14 @@
                                         <td>{{ project.description }}</td>
                                          <td>
                                             <a v-if="project.status == 1" type="button"
-                                                @click="statusProject(project.id)" class="btn btn-sm btn-success">Active</a>
+                                                @click="statusProject(project.id)" class="btn btn-sm btn-success">A</a>
                                             <a v-if="project.status == 0" type="button"
-                                                @click="statusProject(project.id)" class="btn btn-sm btn-dark">Disable</a>
+                                                @click="statusProject(project.id)" class="btn btn-sm btn-dark">D</a>
                                         </td>
                                         <td>
                                             <div class="btn-group">
                                                 <a type="button" @click="deleteProject(project.id)"
-                                                    class="btn btn-sm btn-danger">Delete</a>
+                                                    class="btn btn-sm btn-danger">D</a>
                                             </div>
                                         </td>
                                         <td>{{ project.updated_at }}</td>
@@ -70,7 +70,7 @@ export default {
     },
     methods: {
         async showProjects() {
-            await this.axios.get('/api/project')
+            await this.axios.get(`/api/projects/${this.$route.params.id}`)
                 .then(response => {
                     this.projects = response.data
                 })

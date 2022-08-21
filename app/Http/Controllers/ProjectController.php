@@ -17,8 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with(['detail'])->where('persona_id', Auth::user()->id)->get();
-        return response()->json($projects);
+
     }
 
          /**
@@ -68,9 +67,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**

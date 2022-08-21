@@ -23,7 +23,7 @@ export const routes = [
     },
        {
         name: 'projectPersona',
-        path: '/home/project/persona/:id',
+        path: '/home/projects/:id',
         component:projectPersona
     },
 ];

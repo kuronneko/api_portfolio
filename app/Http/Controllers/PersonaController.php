@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Persona;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,7 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $persona = Persona::create($request->post());
+        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->all());
         return response()->json([
             'persona' => $persona,
         ]);
@@ -54,6 +55,17 @@ class PersonaController extends Controller
     public function show(Persona $persona)
     {
         return response()->json($persona);
+    }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function projects(Persona $persona){
+        $projects = Project::with(['detail'])->where('persona_id', $persona->id)->get();
+        return response()->json($projects);
     }
 
      /**

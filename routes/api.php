@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->group( function(){
     Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::resource('project', \App\Http\Controllers\ProjectController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+    Route::resource('city', \App\Http\Controllers\CityController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+    Route::get('projects/{persona}', [App\Http\Controllers\PersonaController::class, 'projects'])->name('persona.projects');
     Route::put('persona/status/{persona}', [App\Http\Controllers\PersonaController::class, 'status'])->name('persona.status');
     Route::put('project/status/{project}', [App\Http\Controllers\ProjectController::class, 'status'])->name('project.status');
 });
