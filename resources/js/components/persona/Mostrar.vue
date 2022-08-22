@@ -55,6 +55,9 @@
                                                        <router-link :to='{ name: "projectPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     P</router-link>
+                                                    <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
+                                                    class="btn btn-sm btn-success text-white">
+                                                    S</router-link>
                                             </div>
                                         </td>
                                         <td>{{ persona.updated_at }}</td>

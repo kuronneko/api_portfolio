@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use App\Models\Project;
+use App\Models\Social;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,8 +65,21 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function projects(Persona $persona){
+        //projects full filter
+        //$projects = Project::with(['detail'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         $projects = Project::with(['detail'])->where('persona_id', $persona->id)->get();
         return response()->json($projects);
+    }
+
+            /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function socials(Persona $persona){
+        $socials = Social::where('persona_id', $persona->id)->get();
+        return response()->json($socials);
     }
 
      /**
@@ -119,7 +133,7 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
-        $persona->fill($request->post())->save();
+        $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
         return response()->json([
             'persona' => $persona,
         ]);

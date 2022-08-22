@@ -1,5 +1,5 @@
 <template>
-      <div class="container">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card bg-dark text-white">
@@ -12,36 +12,41 @@
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <div class="form-group">
-                                        <label for="">Name</label>
+                                        <label>Name</label>
                                         <input type="text" class="form-control" v-model="persona.name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Lastname</label>
+                                        <label>Lastname</label>
                                         <input type="text" class="form-control" v-model="persona.lastname">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Github</label>
-                                        <input type="text" class="form-control" v-model="persona.github">
+                                        <label>City</label><br>
+                                        <select v-model="persona.city_id">
+                                            <option v-for="city in cities" :value="city.id" :key="city.id">{{ city.name
+                                            }}
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Instagram</label>
-                                        <input type="text" class="form-control" v-model="persona.instagram">
+                                        <label>Title</label>
+                                        <input type="text" class="form-control" v-model="persona.title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Twitter</label>
-                                        <input type="text" class="form-control" v-model="persona.twitter">
+                                        <label>Description</label>
+                                        <textarea cols="30" rows="2" class="form-control"
+                                            v-model="persona.description"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">WhatsApp</label>
-                                        <input type="text" class="form-control" v-model="persona.whatsapp">
+                                        <label>About</label>
+                                        <textarea cols="30" rows="2" class="form-control"
+                                            v-model="persona.about"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Email</label>
-                                        <input type="text" class="form-control" v-model="persona.email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Location</label>
-                                        <input type="text" class="form-control" v-model="persona.location">
+                                        <label>Experience</label><br>
+                                        <select v-model="persona.experience">
+                                            <option v-for="i in 10" :value="i" :key="i">{{ i }}
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
@@ -58,57 +63,66 @@
 
 <script>
 export default {
-    name:"editar-persona",
-    data(){
-        return{
-            persona:{
+    name: "editar-persona",
+    data() {
+        return {
+            persona: {
                 name: "",
                 lastname: "",
-                github: "",
-                instagram: "",
-                twitter: "",
-                whatsapp: "",
-                email: "",
-                location: "",
-            }
+                title: "",
+                description: "",
+                about: "",
+                experience: "",
+                city_id: "",
+                user_id: ""
+            },
+            cities: []
         }
     },
-    mounted(){
+    mounted() {
+        this.getCities(),
         this.mostrarPersona()
     },
-    methods:{
-        async mostrarPersona(){
+    methods: {
+        async mostrarPersona() {
             await this.axios.get(`/api/persona/${this.$route.params.id}`)
-            .then(response=>{
-                const {name,lastname,github,instagram,twitter,whatsapp,email,location} = response.data
-                this.persona.name = name,
-                this.persona.lastname = lastname,
-                this.persona.github = github,
-                this.persona.instagram = instagram,
-                this.persona.twitter = twitter,
-                this.persona.whatsapp = whatsapp,
-                this.persona.email = email,
-                this.persona.location = location
-            })
-            .catch(error=>{
-                console.log(error)
-            })
-        },
-        async actualizar(){
-            await this.axios.put(`/api/persona/${this.$route.params.id}`, this.persona)
-            .then(response=>{
-                this.$router.push({
-                    name:"mostrarPersonas"
+                .then(response => {
+                    const { city_id, name, lastname, title, description, about, experience } = response.data
+                        this.persona.name = name,
+                        this.persona.lastname = lastname,
+                        this.persona.title = title,
+                        this.persona.description = description,
+                        this.persona.about = about,
+                        this.persona.experience = experience,
+                        this.persona.city_id = city_id
                 })
-            })
-            .catch(error=>{
-                console.log(error)
-            })
-        }
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        async actualizar() {
+            await this.axios.put(`/api/persona/${this.$route.params.id}`, this.persona)
+                .then(response => {
+                    this.$router.push({
+                        name: "mostrarPersonas"
+                    })
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+               async getCities() {
+            await this.axios.get('/api/city')
+                .then(response => {
+                    this.cities = response.data
+                })
+                .catch(error => {
+                    this.cities = []
+                })
+        },
     }
 }
 </script>
 
 <style>
-
 </style>

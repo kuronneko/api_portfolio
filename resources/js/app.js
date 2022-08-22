@@ -1,4 +1,5 @@
 require('./bootstrap');
+
 //import vue from 'vue';
 //window.Vue = vue;
 

@@ -40,9 +40,9 @@
                                         <textarea cols="30" rows="2" class="form-control"
                                             v-model="persona.about"></textarea>
                                     </div>
-                                    <div class="form-group">
+                                <!-- <div class="form-group">
                                         <input type="hidden" name="status" :value=0>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <label>Experience</label><br>
                                         <select v-model="persona.experience">
@@ -74,17 +74,17 @@ export default {
                 title: "",
                 description: "",
                 about: "",
-                status: "",
+                //status: "",
                 experience: "",
                 city_id: "",
-                user_id: "",
+                user_id: ""
             },
-            cities: [],
+            cities: []
         }
     },
     mounted() {
-        this.getCities(),
-        this.persona.status = document.getElementsByName("status").value
+        this.getCities()
+        //this.persona.status = document.getElementsByName("status").value
     },
     methods: {
         async crear() {
