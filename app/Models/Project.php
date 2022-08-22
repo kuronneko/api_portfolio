@@ -16,7 +16,7 @@ class Project extends Model
 
     public function detail()
     {
-        return $this->hasOne(Detail::class);
+        return $this->hasMany(Detail::class);
     }
 
 
