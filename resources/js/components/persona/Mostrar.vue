@@ -41,23 +41,28 @@
                                         <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
                                         <td>
                                             <a v-if="persona.status == 1" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-success">A</a>
+                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark text-success"><font-awesome-icon icon="fa-solid fa-toggle-on" /></a>
                                             <a v-if="persona.status == 0" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark">D</a>
+                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark text-danger"><font-awesome-icon icon="fa-solid fa-toggle-off" /></a>
                                         </td>
                                         <td>
                                             <div class="btn-group">
                                                 <router-link :to='{ name: "editarPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
-                                                    E</router-link>
+                                                    <font-awesome-icon icon="fa-solid fa-pen-to-square" />
+                                                </router-link>
                                                 <a type="button" @click="borrarPersona(persona.id)"
-                                                    class="btn btn-sm btn-danger">D</a>
-                                                       <router-link :to='{ name: "projectPersona", params: { id: persona.id } }'
+                                                    class="btn btn-sm btn-danger">
+                                                     <font-awesome-icon icon="fa-solid fa-trash" />
+                                                </a>
+                                                <router-link :to='{ name: "projectPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
-                                                    P</router-link>
+                                                            <font-awesome-icon icon="fa-solid fa-diagram-project" />
+                                                </router-link>
                                                     <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
-                                                    S</router-link>
+                                                                    <font-awesome-icon icon="fa-solid fa-wand-sparkles" />
+                                                </router-link>
                                             </div>
                                         </td>
                                         <td>{{ persona.updated_at }}</td>
