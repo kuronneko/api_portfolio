@@ -24,6 +24,7 @@ Route::middleware('auth:api')->group( function(){
     Route::put('persona/status/{persona}', [App\Http\Controllers\PersonaController::class, 'status'])->name('persona.status');
     Route::get('projects/{persona}', [App\Http\Controllers\PersonaController::class, 'projects'])->name('persona.projects');
     Route::get('socials/{persona}', [App\Http\Controllers\PersonaController::class, 'socials'])->name('persona.socials');
+    Route::get('skills/{persona}', [App\Http\Controllers\PersonaController::class, 'skills'])->name('persona.skills');
 
     Route::resource('project', \App\Http\Controllers\ProjectController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::put('project/status/{project}', [App\Http\Controllers\ProjectController::class, 'status'])->name('project.status');

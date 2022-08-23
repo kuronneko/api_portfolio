@@ -23,6 +23,7 @@
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
+        "@aacassandra/vue3-progressbar": "^1.0.3",
         "@fortawesome/fontawesome-svg-core": "^6.1.2",
         "@fortawesome/free-brands-svg-icons": "^6.1.2",
         "@fortawesome/free-regular-svg-icons": "^6.1.2",
