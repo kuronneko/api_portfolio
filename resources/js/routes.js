@@ -4,6 +4,7 @@ const Crear = ()=> import('./components/persona/Crear.vue');
 const Editar = ()=> import('./components/persona/Editar.vue');
 const projectPersona = ()=> import('./components/persona/project/Mostrar.vue');
 const socialPersona = ()=> import('./components/persona/social/Mostrar.vue');
+const skillPersona = ()=> import('./components/persona/skill/Mostrar.vue');
 
 
 export const routes = [
@@ -31,5 +32,10 @@ export const routes = [
         name: 'socialPersona',
         path: '/home/socials/:id',
         component:socialPersona
+    },
+    {
+        name: 'skillPersona',
+        path: '/home/skills/:id',
+        component:skillPersona
     },
 ];

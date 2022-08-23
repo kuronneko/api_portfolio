@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use App\Models\Project;
+use App\Models\Skill;
 use App\Models\Social;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -80,6 +81,17 @@ class PersonaController extends Controller
     public function socials(Persona $persona){
         $socials = Social::where('persona_id', $persona->id)->get();
         return response()->json($socials);
+    }
+
+                /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function skills(Persona $persona){
+        $skills = Skill::where('persona_id', $persona->id)->get();
+        return response()->json($skills);
     }
 
      /**

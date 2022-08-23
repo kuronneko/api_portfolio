@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card bg-dark text-white border border-secondary">
+                    <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Create new Persona</h4>
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>

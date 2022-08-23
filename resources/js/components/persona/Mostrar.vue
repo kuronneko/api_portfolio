@@ -1,15 +1,16 @@
 <template>
-    <div class="container">
+    <div class="">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card bg-dark text-white">
-                    <div class="card-header">
-                        <router-link :to='{ name: "crearPersona" }' class="btn btn-sm btn-success text-white">New Persona
+                <div class="card bg-dark text-white border border-secondary">
+                    <div class="card-header border border-secondary border-top-0 border-start-0 border-end-0">
+                        <router-link :to='{ name: "crearPersona" }' class="btn btn-sm btn-success text-white">New
+                            Persona
                         </router-link>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-dark table-hover">
+                            <table class="table table-dark table-hover border border-secondary">
                                 <thead class="bg-dark text-white">
                                     <tr>
                                         <th>ID</th>
@@ -41,9 +42,15 @@
                                         <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
                                         <td>
                                             <a v-if="persona.status == 1" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark text-success"><font-awesome-icon icon="fa-solid fa-toggle-on" /></a>
+                                                @click="statusPersona(persona.id)"
+                                                class="btn btn-sm btn-dark text-success">
+                                                <font-awesome-icon icon="fa-solid fa-toggle-on" />
+                                            </a>
                                             <a v-if="persona.status == 0" type="button"
-                                                @click="statusPersona(persona.id)" class="btn btn-sm btn-dark text-danger"><font-awesome-icon icon="fa-solid fa-toggle-off" /></a>
+                                                @click="statusPersona(persona.id)"
+                                                class="btn btn-sm btn-dark text-danger">
+                                                <font-awesome-icon icon="fa-solid fa-toggle-off" />
+                                            </a>
                                         </td>
                                         <td>
                                             <div class="btn-group">
@@ -53,15 +60,20 @@
                                                 </router-link>
                                                 <a type="button" @click="borrarPersona(persona.id)"
                                                     class="btn btn-sm btn-danger">
-                                                     <font-awesome-icon icon="fa-solid fa-trash" />
+                                                    <font-awesome-icon icon="fa-solid fa-trash" />
                                                 </a>
-                                                <router-link :to='{ name: "projectPersona", params: { id: persona.id } }'
+                                                <router-link
+                                                    :to='{ name: "projectPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
-                                                            <font-awesome-icon icon="fa-solid fa-diagram-project" />
+                                                    <font-awesome-icon icon="fa-solid fa-diagram-project" />
                                                 </router-link>
-                                                    <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
+                                                <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
-                                                                    <font-awesome-icon icon="fa-solid fa-wand-sparkles" />
+                                                    <font-awesome-icon icon="fa-solid fa-rss" />
+                                                </router-link>
+                                                    <router-link :to='{ name: "skillPersona", params: { id: persona.id } }'
+                                                    class="btn btn-sm btn-success text-white">
+                                                    <font-awesome-icon icon="fa-solid fa-wand-sparkles" />
                                                 </router-link>
                                             </div>
                                         </td>
@@ -75,8 +87,6 @@
             </div>
         </div>
     </div>
-
-
 
 </template>
 
