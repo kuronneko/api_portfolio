@@ -4,8 +4,8 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-dark text-white">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+            <div class="card bg-dark text-white border border-secondary">
+                <div class="card-header border border-secondary border-top-0 border-start-0 border-end-0">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
