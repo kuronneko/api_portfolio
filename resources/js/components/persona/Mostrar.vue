@@ -1,16 +1,16 @@
 <template>
-    <div class="container">
+    <div class="">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card bg-dark text-white">
-                    <div class="card-header">
+                <div class="card bg-dark text-white border border-secondary">
+                    <div class="card-header border border-secondary border-top-0 border-start-0 border-end-0">
                         <router-link :to='{ name: "crearPersona" }' class="btn btn-sm btn-success text-white">New
                             Persona
                         </router-link>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-dark table-hover">
+                            <table class="table table-dark table-hover border border-secondary">
                                 <thead class="bg-dark text-white">
                                     <tr>
                                         <th>ID</th>

@@ -18,9 +18,9 @@
 
 
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container">
                 <img src="/img/logo.png" style="height:30px; margin-right:10px;" alt="">
                 <a class="navbar-brand" href="{{ url('/home') }}">

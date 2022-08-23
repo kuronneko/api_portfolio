@@ -1,16 +1,16 @@
 <template>
-    <div class="container">
+   <div class="">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card bg-dark text-white">
-                     <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card bg-dark text-white border border-secondary">
+                     <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <router-link :to='{ name: "" }' class="btn btn-sm btn-success text-white">New Skill
                         </router-link>
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-dark table-hover">
+                            <table class="table table-dark table-hover border border-secondary">
                                 <thead class="bg-dark text-white">
                                     <tr>
                                         <th>ID</th>
