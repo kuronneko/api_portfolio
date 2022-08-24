@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-success btn-block text-white">Save</button>
+                                    <button type="submit" class="btn btn-success btn-sm btn-block text-white">Save</button>
                                 </div>
                             </div>
                         </form>
