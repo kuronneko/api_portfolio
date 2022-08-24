@@ -466,6 +466,47 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
+        $project6_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'wikiPlantas',
+            'title' => 'wikiPlantas',
+            'description' => 'wikiPlantas is a web application designed to build a repository with information about plants and herbs.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project6_p1->id,
+            'description' => 'Laravel-Permission System Implemented',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p1->id,
+            'description' => 'Stisla UI',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p1->id,
+            'description' => 'Tags System',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p1->id,
+            'description' => 'Attach Multiple Images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p1->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
            /////// Persona2, Project2 ///////
 
         $persona2 = Persona::create([
@@ -860,6 +901,47 @@ class DatabaseSeeder extends Seeder
         ]);
         Detail::create([
             'project_id' => $project5_p2->id,
+            'description' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        $project6_p2 = Project::create([
+            'persona_id' => $persona2->id,
+            'name' => 'wikiPlantas',
+            'title' => 'wikiPlantas',
+            'description' => 'wikiPlantas is a web application designed to build a repository with information about plants and herbs.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project6_p2->id,
+            'description' => 'Laravel-Permission System Implemented',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p2->id,
+            'description' => 'Stisla UI',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p2->id,
+            'description' => 'Tags System',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p2->id,
+            'description' => 'Attach Multiple Images',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project6_p2->id,
             'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
