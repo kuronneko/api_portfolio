@@ -30,7 +30,9 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a type="button" @click="deleteSkill(skill.id)"
-                                                    class="btn btn-sm btn-danger">D</a>
+                                                    class="btn btn-sm btn-danger">
+                                                <font-awesome-icon icon="fa-solid fa-trash" />
+                                                </a>
                                             </div>
                                         </td>
                                         <td>{{ skill.updated_at }}</td>

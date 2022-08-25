@@ -30,7 +30,9 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a type="button" @click="deleteSocial(social.id)"
-                                                    class="btn btn-sm btn-danger">D</a>
+                                                    class="btn btn-sm btn-danger">
+                                                    <font-awesome-icon icon="fa-solid fa-trash" />
+                                                </a>
                                             </div>
                                         </td>
                                         <td>{{ social.updated_at }}</td>
