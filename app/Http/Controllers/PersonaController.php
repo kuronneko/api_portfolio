@@ -67,7 +67,7 @@ class PersonaController extends Controller
      */
     public function projects(Persona $persona){
         //projects full filter
-        //$projects = Project::with(['detail'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+        //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         $projects = Project::with(['details'])->where('persona_id', $persona->id)->get();
         return response()->json($projects);
     }

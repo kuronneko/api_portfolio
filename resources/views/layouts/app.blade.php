@@ -78,8 +78,18 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 
+        <style>
+            @media only screen and (min-width: 600px) {
+                body{
+                    background-image: url(../img/toja.png);
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-position: right -300px bottom -300px;
+            }
+            }
+        </style>
+    </div>
 
         <!-- Scripts -->
 
