@@ -28,6 +28,7 @@ Route::middleware('auth:api')->group( function(){
 
     Route::resource('project', \App\Http\Controllers\ProjectController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::put('project/status/{project}', [App\Http\Controllers\ProjectController::class, 'status'])->name('project.status');
+    Route::get('project/details/{project}', [App\Http\Controllers\ProjectController::class, 'details'])->name('project.details');
 
     Route::resource('city', \App\Http\Controllers\CityController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
 

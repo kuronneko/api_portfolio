@@ -61,6 +61,17 @@ class ProjectController extends Controller
         //
     }
 
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details(Project $project){
+        $details = Detail::where('project_id', $project->id)->with(['project.persona'])->get();
+        return response()->json($details);
+    }
+
     /**
      * Display the specified resource.
      *

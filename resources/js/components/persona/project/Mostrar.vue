@@ -1,9 +1,10 @@
 <template>
-   <div class="">
+    <div class="">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card bg-dark text-white border border-secondary">
-                     <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
+                    <div
+                        class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <router-link :to='{ name: "" }' class="btn btn-sm btn-success text-white">New Project
                         </router-link>
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
@@ -23,23 +24,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <tr v-for="project in projects" :key="project.id">
-
                                         <td>{{ project.id }}</td>
                                         <td>{{ project.name }}</td>
                                         <td>{{ project.title }}</td>
                                         <td>{{ project.description }}</td>
-                                         <td>
+                                        <td>
                                             <a v-if="project.status == 1" type="button"
-                                                @click="statusProject(project.id)" class="btn btn-sm btn-success">A</a>
+                                                @click="statusProject(project.id)" class="btn btn-sm btn-dark text-success">
+                                                <font-awesome-icon icon="fa-solid fa-toggle-on" />
+                                            </a>
                                             <a v-if="project.status == 0" type="button"
-                                                @click="statusProject(project.id)" class="btn btn-sm btn-dark">D</a>
+                                                @click="statusProject(project.id)" class="btn btn-sm btn-dark text-danger">
+                                            <font-awesome-icon icon="fa-solid fa-toggle-off" />
+                                            </a>
                                         </td>
                                         <td>
                                             <div class="btn-group">
                                                 <a type="button" @click="deleteProject(project.id)"
-                                                    class="btn btn-sm btn-danger">D</a>
+                                                    class="btn btn-sm btn-danger">
+                                                    <font-awesome-icon icon="fa-solid fa-trash" />
+                                                </a>
+                                                <router-link :to='{ name: "detailProject", params: { id: project.id } }'
+                                                    class="btn btn-sm btn-success text-white">
+                                                    <font-awesome-icon icon="fa-solid fa-asterisk" />
+                                                </router-link>
                                             </div>
                                         </td>
                                         <td>{{ project.updated_at }}</td>

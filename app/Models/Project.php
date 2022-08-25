@@ -14,7 +14,7 @@ class Project extends Model
         return $this->belongsTo(Persona::class, 'persona_id');
     }
 
-    public function detail()
+    public function details()
     {
         return $this->hasMany(Detail::class);
     }

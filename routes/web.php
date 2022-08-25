@@ -26,7 +26,7 @@ Auth::routes([
 //protected group routes
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/home', function () { // {any}
+    Route::get('{any}', function () { // {any}
         return view('home');
     })->where('any', '.*');
 });

@@ -10,10 +10,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss } from '@fortawesome/free-solid-svg-icons'
+import { faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss)
+library.add(faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk)
 
 import { createApp } from 'vue';
 import App from './components/App.vue';
@@ -34,7 +34,7 @@ import VueProgressBar from "@aacassandra/vue3-progressbar";
 const vueProgressBarOptions = {
     color: "green",
     failedColor: "red",
-    thickness: "3px",
+    thickness: "4px",
     transition: {
       speed: "0.2s",
       opacity: "0.6s",
