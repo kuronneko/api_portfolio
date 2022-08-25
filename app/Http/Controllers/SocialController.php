@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
+use App\Models\Social;
 use Illuminate\Http\Request;
 
 class SocialController extends Controller
@@ -34,7 +36,10 @@ class SocialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $social = Social::create($request->post());
+        return response()->json([
+            'social' => $social,
+        ]);
     }
 
     /**
@@ -43,9 +48,9 @@ class SocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Social $social)
     {
-        //
+        return response()->json($social);
     }
 
     /**
@@ -77,8 +82,11 @@ class SocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Social $social)
     {
-        //
+        $social->delete();
+        return response()->json([
+            'mensaje' => 'Social deleted',
+        ]);
     }
 }
