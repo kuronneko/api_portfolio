@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail;
 use App\Models\Persona;
 use App\Models\Project;
 use App\Models\Skill;
@@ -186,9 +187,13 @@ class PersonaController extends Controller
      */
     public function destroy(Persona $persona)
     {
+        Detail::whereIn('project_id', Project::where('persona_id', $persona->id)->get()->pluck('id'))->delete();
+        Project::where('persona_id', $persona->id)->delete();
+        Skill::where('persona_id', $persona->id)->delete();
+        Social::where('persona_id', $persona->id)->delete();
         $persona->delete();
         return response()->json([
-            'mensaje' => 'Mensaje eliminado',
+            'mensaje' => 'Persona deleted',
         ]);
     }
 
