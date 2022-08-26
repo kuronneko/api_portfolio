@@ -12,7 +12,12 @@ const SkillPersonaCreate = ()=> import('./components/persona/skill/Create.vue');
 const SkillPersonaEdit = ()=> import('./components/persona/skill/Edit.vue');
 
 const ProjectPersona = ()=> import('./components/persona/project/ShowAll.vue');
+const ProjectPersonaCreate = ()=> import('./components/persona/project/Create.vue');
+const ProjectPersonaEdit = ()=> import('./components/persona/project/Edit.vue');
+
 const DetailProject = ()=> import('./components/persona/project/detail/ShowAll.vue');
+const DetailProjectCreate = ()=> import('./components/persona/project/detail/Create.vue');
+const DetailProjectEdit = ()=> import('./components/persona/project/detail/Edit.vue');
 
 
 export const routes = [
@@ -35,6 +40,16 @@ export const routes = [
         name: 'projectPersona',
         path: '/home/projects/:id',
         component:ProjectPersona
+    },
+    {
+        name: 'createPersonaProject',
+        path: '/home/project/create',
+        component:ProjectPersonaCreate
+    },
+    {
+        name: 'editPersonaProject',
+        path: '/home/project/edit/:id',
+        component:ProjectPersonaEdit
     },
     {
         name: 'socialPersona',
@@ -70,5 +85,15 @@ export const routes = [
         name: 'detailProject',
         path: '/home/project/details/:id',
         component:DetailProject
+    },
+    {
+        name: 'createProjectDetail',
+        path: '/home/project/detail/create',
+        component:DetailProjectCreate
+    },
+    {
+        name: 'editProjectDetail',
+        path: '/home/project/detail/edit/:id',
+        component:DetailProjectEdit
     },
 ];

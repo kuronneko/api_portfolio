@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -34,7 +35,10 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $detail = Detail::create($request->post());
+        return response()->json([
+            'detail' => $detail,
+        ]);
     }
 
     /**
@@ -43,9 +47,9 @@ class DetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Detail $detail)
     {
-        //
+        return response()->json($detail);
     }
 
     /**
@@ -66,9 +70,12 @@ class DetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Detail $detail)
     {
-        //
+        $detail->fill($request->post())->save();
+        return response()->json([
+            'detail' => $detail,
+        ]);
     }
 
     /**
@@ -77,8 +84,11 @@ class DetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Detail $detail)
     {
-        //
+        $detail->delete();
+        return response()->json([
+            'mensaje' => 'Project Detail deleted',
+        ]);
     }
 }

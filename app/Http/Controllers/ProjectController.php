@@ -58,7 +58,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = Project::create($request->post());
+        return response()->json([
+            'project' => $project,
+        ]);
     }
 
      /**
@@ -78,9 +81,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Project $project)
     {
-
+        return response()->json($project);
     }
 
     /**
@@ -101,9 +104,12 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $project->fill($request->post())->save();
+        return response()->json([
+            'project' => $project,
+        ]);
     }
 
     /**
