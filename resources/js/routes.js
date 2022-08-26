@@ -33,12 +33,12 @@ export const routes = [
     },
     {
         name: 'editPersona',
-        path: '/home/edit/:id',
+        path: '/home/edit/:personaID',
         component:Edit
     },
        {
         name: 'projectPersona',
-        path: '/home/projects/:id',
+        path: '/home/projects/:personaID',
         component:ProjectPersona
     },
     {
@@ -48,12 +48,12 @@ export const routes = [
     },
     {
         name: 'editPersonaProject',
-        path: '/home/project/edit/:id',
+        path: '/home/project/edit/:projectID/:personaID',
         component:ProjectPersonaEdit
     },
     {
         name: 'socialPersona',
-        path: '/home/socials/:id',
+        path: '/home/socials/:personaID',
         component:SocialPersona
     },
     {
@@ -63,12 +63,12 @@ export const routes = [
     },
     {
         name: 'editPersonaSocial',
-        path: '/home/social/edit/:id',
+        path: '/home/social/edit/:socialID/:personaID',
         component:SocialPersonaEdit
     },
     {
         name: 'skillPersona',
-        path: '/home/skills/:id',
+        path: '/home/skills/:personaID',
         component:SkillPersona
     },
     {
@@ -78,7 +78,7 @@ export const routes = [
     },
     {
         name: 'editPersonaSkill',
-        path: '/home/skill/edit/:id',
+        path: '/home/skill/edit/:skillID/:personaID',
         component:SkillPersonaEdit
     },
     {

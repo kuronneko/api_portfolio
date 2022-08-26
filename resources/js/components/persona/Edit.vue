@@ -93,7 +93,7 @@ export default {
     },
     methods: {
         async showPersona() {
-            await this.axios.get(`/api/persona/${this.$route.params.id}`)
+            await this.axios.get(`/api/persona/${this.$route.params.personaID}`)
                 .then(response => {
                     const { city_id, name, lastname, title, description, about, experience } = response.data
                     this.persona.name = name,
@@ -109,7 +109,7 @@ export default {
                 })
         },
         async update() {
-            await this.axios.put(`/api/persona/${this.$route.params.id}`, this.persona)
+            await this.axios.put(`/api/persona/${this.$route.params.personaID}`, this.persona)
                 .then(response => {
                     this.$router.push({
                         name: "showPersonas"

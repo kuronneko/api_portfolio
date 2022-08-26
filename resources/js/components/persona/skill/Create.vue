@@ -5,7 +5,7 @@
                 <div class="card bg-dark text-white border border-secondary">
                     <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Create new Skill</h4>
-                        <router-link :to='{ name: "skillPersona", params: { id: this.$route.params.id } }' class="btn btn-success btn-sm text-white">Back</router-link>
+                        <router-link :to='{ name: "skillPersona", params: { personaID: this.$route.params.personaID } }' class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="create">
@@ -43,7 +43,7 @@ export default {
             skill: {
                 name: "",
                 level: "",
-                persona_id: this.$route.params.id
+                persona_id: this.$route.params.personaID
             },
         }
     },

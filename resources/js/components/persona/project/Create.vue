@@ -6,7 +6,7 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Create new Project</h4>
-                        <router-link :to='{ name: "projectPersona", params: { id: this.$route.params.id } }'
+                        <router-link :to='{ name: "projectPersona", params: { personaID: this.$route.params.personaID } }'
                             class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
@@ -49,7 +49,7 @@ export default {
                 title: "",
                 description: "",
                 status: 1,
-                persona_id: this.$route.params.id
+                persona_id: this.$route.params.personaID
             },
         }
     },

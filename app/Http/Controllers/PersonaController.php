@@ -95,7 +95,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function socials(Persona $persona){
-        $socials = Social::where('persona_id', $persona->id)->get();
+        $socials = Social::with(['persona'])->where('persona_id', $persona->id)->get();
         return response()->json($socials);
     }
 
@@ -106,7 +106,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function skills(Persona $persona){
-        $skills = Skill::where('persona_id', $persona->id)->get();
+        $skills = Skill::with(['persona'])->where('persona_id', $persona->id)->get();
         return response()->json($skills);
     }
 

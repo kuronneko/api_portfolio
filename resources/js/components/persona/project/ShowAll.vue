@@ -5,7 +5,7 @@
                 <div class="card bg-dark text-white border border-secondary">
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
-                        <router-link :to='{ name: "createPersonaProject", params: { id: this.$route.params.id } }'
+                        <router-link :to='{ name: "createPersonaProject", params: { personaID: this.$route.params.personaID } }'
                             class="btn btn-sm btn-success text-white">New Project
                         </router-link>
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
@@ -45,7 +45,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <router-link
-                                                    :to='{ name: "editPersonaProject", params: { id: project.id } }'
+                                                    :to='{ name: "editPersonaProject", params: { projectID: project.id, personaID: project.persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
@@ -87,7 +87,7 @@ export default {
     },
     methods: {
         async showProjects() {
-            await this.axios.get(`/api/projects/${this.$route.params.id}`)
+            await this.axios.get(`/api/projects/${this.$route.params.personaID}`)
                 .then(response => {
                     this.projects = response.data
                 })

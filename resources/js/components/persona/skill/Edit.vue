@@ -6,7 +6,7 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Edit Skill</h4>
-                        <router-link :to='{ name: "skillPersona", params: { id: this.$route.params.id } }' class="btn btn-success btn-sm text-white">Back</router-link>
+                        <router-link :to='{ name: "skillPersona", params: { personaID: this.$route.params.personaID } }' class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="update">
@@ -42,7 +42,6 @@ export default {
     data() {
         return {
             skill: {
-                id: this.$route.params.id, //save skill id at start
                 name: "",
                 level: "",
             },
@@ -53,19 +52,18 @@ export default {
     },
     methods: {
         async showSkill() {
-            await this.axios.get(`/api/skill/${this.$route.params.id}`)
+            await this.axios.get(`/api/skill/${this.$route.params.skillID}`)
                 .then(response => {
                     const { name, level, persona_id} = response.data
                     this.skill.name = name,
                     this.skill.level = level
-                    this.$route.params.id = persona_id //set route id with persona id
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
         async update() {
-            await this.axios.put(`/api/skill/${this.skill.id}`, this.skill)
+            await this.axios.put(`/api/skill/${this.$route.params.skillID}`, this.skill)
                 .then(response => {
                     this.$router.push({
                         name: "skillPersona" //showSkillPersona

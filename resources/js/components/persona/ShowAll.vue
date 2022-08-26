@@ -50,7 +50,7 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <router-link :to='{ name: "editPersona", params: { id: persona.id } }'
+                                                <router-link :to='{ name: "editPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
@@ -59,15 +59,15 @@
                                                     <font-awesome-icon icon="fa-solid fa-trash" />
                                                 </a>
                                                 <router-link
-                                                    :to='{ name: "projectPersona", params: { id: persona.id } }'
+                                                    :to='{ name: "projectPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-diagram-project" />
                                                 </router-link>
-                                                <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
+                                                <router-link :to='{ name: "socialPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-rss" />
                                                 </router-link>
-                                                    <router-link :to='{ name: "skillPersona", params: { id: persona.id } }'
+                                                    <router-link :to='{ name: "skillPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-wand-sparkles" />
                                                 </router-link>
