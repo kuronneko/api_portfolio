@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -34,7 +35,10 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $skill = Skill::create($request->post());
+        return response()->json([
+            'skill' => $skill,
+        ]);
     }
 
     /**
@@ -43,9 +47,9 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Skill $skill)
     {
-        //
+        return response()->json($skill);
     }
 
     /**
@@ -66,9 +70,12 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Skill $skill)
     {
-        //
+        $skill->fill($request->post())->save();
+        return response()->json([
+            'skill' => $skill,
+        ]);
     }
 
     /**
@@ -77,8 +84,11 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+        return response()->json([
+            'mensaje' => 'Skill deleted',
+        ]);
     }
 }

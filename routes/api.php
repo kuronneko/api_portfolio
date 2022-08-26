@@ -31,10 +31,9 @@ Route::middleware('auth:api')->group( function(){
     Route::get('project/details/{project}', [App\Http\Controllers\ProjectController::class, 'details'])->name('project.details');
 
     Route::resource('city', \App\Http\Controllers\CityController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
-
     Route::resource('social', \App\Http\Controllers\SocialController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
-
     Route::resource('skill', \App\Http\Controllers\SkillController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+    Route::resource('detail', \App\Http\Controllers\DetailController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
 
 });
 //Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');

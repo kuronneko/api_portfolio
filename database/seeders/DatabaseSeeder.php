@@ -335,12 +335,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        Detail::create([
-            'project_id' => $project2_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
 
         $project3_p1 = Project::create([
             'persona_id' => $persona1->id,
@@ -370,18 +364,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        Detail::create([
-            'project_id' => $project3_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project3_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
 
         $project4_p1 = Project::create([
             'persona_id' => $persona1->id,
@@ -402,24 +384,6 @@ class DatabaseSeeder extends Seeder
         Detail::create([
             'project_id' => $project4_p1->id,
             'description' => 'Has a GUI Swing version',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p1->id,
-            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -450,18 +414,6 @@ class DatabaseSeeder extends Seeder
         Detail::create([
             'project_id' => $project5_p1->id,
             'description' => 'Advanced SQL queries',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project5_p1->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project5_p1->id,
-            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -497,12 +449,6 @@ class DatabaseSeeder extends Seeder
         Detail::create([
             'project_id' => $project6_p1->id,
             'description' => 'Attach Multiple Images',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project6_p1->id,
-            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -775,12 +721,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        Detail::create([
-            'project_id' => $project2_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
 
         $project3_p2 = Project::create([
             'persona_id' => $persona2->id,
@@ -810,18 +750,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        Detail::create([
-            'project_id' => $project3_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project3_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
 
         $project4_p2 = Project::create([
             'persona_id' => $persona2->id,
@@ -842,24 +770,6 @@ class DatabaseSeeder extends Seeder
         Detail::create([
             'project_id' => $project4_p2->id,
             'description' => 'Has a GUI Swing version',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project4_p2->id,
-            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -890,18 +800,6 @@ class DatabaseSeeder extends Seeder
         Detail::create([
             'project_id' => $project5_p2->id,
             'description' => 'Advanced SQL queries',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project5_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-        Detail::create([
-            'project_id' => $project5_p2->id,
-            'description' => '',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -940,12 +838,7 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        Detail::create([
-            'project_id' => $project6_p2->id,
-            'description' => '',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
+
 
 
     }
