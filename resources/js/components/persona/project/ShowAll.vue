@@ -53,7 +53,7 @@
                                                     class="btn btn-sm btn-danger">
                                                     <font-awesome-icon icon="fa-solid fa-trash" />
                                                 </a>
-                                                <router-link :to='{ name: "detailProject", params: { id: project.id } }'
+                                                <router-link :to='{ name: "detailProject", params: { projectID: project.id, personaID: project.persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-asterisk" />
                                                 </router-link>

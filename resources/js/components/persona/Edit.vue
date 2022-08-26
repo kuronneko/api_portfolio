@@ -3,7 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card bg-dark text-white border border-secondary">
-                    <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
+                    <div
+                        class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Edit Persona</h4>
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
@@ -19,13 +20,27 @@
                                         <label>Lastname</label>
                                         <input type="text" class="form-control" v-model="persona.lastname">
                                     </div>
-                                    <div class="form-group">
-                                        <label>City</label><br>
-                                        <select v-model="persona.city_id">
-                                            <option v-for="city in cities" :value="city.id" :key="city.id">{{ city.name
-                                            }}
-                                            </option>
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>City</label><br>
+                                                <select v-model="persona.city_id">
+                                                    <option v-for="city in cities" :value="city.id" :key="city.id">{{
+                                                            city.name
+                                                    }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Experience</label><br>
+                                                <select v-model="persona.experience">
+                                                    <option v-for="i in 20" :value="i" :key="i">{{ i }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Title</label>
@@ -41,16 +56,9 @@
                                         <textarea cols="30" rows="2" class="form-control"
                                             v-model="persona.about"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Experience</label><br>
-                                        <select v-model="persona.experience">
-                                            <option v-for="i in 10" :value="i" :key="i">{{ i }}
-                                            </option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-success btn-sm text-white">Save</button>
+                                    <button type="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -81,14 +89,14 @@ export default {
     },
     mounted() {
         this.getCities(),
-        this.showPersona()
+            this.showPersona()
     },
     methods: {
         async showPersona() {
             await this.axios.get(`/api/persona/${this.$route.params.id}`)
                 .then(response => {
                     const { city_id, name, lastname, title, description, about, experience } = response.data
-                        this.persona.name = name,
+                    this.persona.name = name,
                         this.persona.lastname = lastname,
                         this.persona.title = title,
                         this.persona.description = description,
@@ -111,7 +119,7 @@ export default {
                     console.log(error)
                 })
         },
-               async getCities() {
+        async getCities() {
             await this.axios.get('/api/city')
                 .then(response => {
                     this.cities = response.data

@@ -11,7 +11,9 @@
                         <form @submit.prevent="create">
                             <div class="row">
                                 <div class="col-md-12 mb-2">
-                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                   <div class="form-group">
                                         <label>Name</label>
                                         <input type="text" class="form-control" v-model="persona.name">
                                     </div>
@@ -30,7 +32,33 @@
                                         <label>Title</label>
                                         <input type="text" class="form-control" v-model="persona.title">
                                     </div>
+                                <!-- <div class="form-group">
+                                        <input type="hidden" name="status" :value=0>
+                                    </div> -->
+                                        </div>
+                                        <div class="col-md-6">
                                     <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" class="form-control" v-model="persona.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>GitHub</label>
+                                        <input type="text" class="form-control" v-model="persona.github">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>WhatsApp</label>
+                                        <input type="text" class="form-control" v-model="persona.whatsapp">
+                                    </div>
+                                                                        <div class="form-group">
+                                        <label>Experience</label><br>
+                                        <select v-model="persona.experience">
+                                            <option v-for="i in 20" :value="i" :key="i">{{ i }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                        </div>
+                                    </div>
+                                                                        <div class="form-group">
                                         <label>Description</label>
                                         <textarea cols="30" rows="2" class="form-control"
                                             v-model="persona.description"></textarea>
@@ -40,19 +68,9 @@
                                         <textarea cols="30" rows="2" class="form-control"
                                             v-model="persona.about"></textarea>
                                     </div>
-                                <!-- <div class="form-group">
-                                        <input type="hidden" name="status" :value=0>
-                                    </div> -->
-                                    <div class="form-group">
-                                        <label>Experience</label><br>
-                                        <select v-model="persona.experience">
-                                            <option v-for="i in 10" :value="i" :key="i">{{ i }}
-                                            </option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-success btn-sm btn-block text-white">Save</button>
+                                    <button type="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -77,7 +95,10 @@ export default {
                 //status: "",
                 experience: "",
                 city_id: "",
-                user_id: ""
+                user_id: "",
+                email: "", //social email
+                whatsapp: "", //social whatsapp
+                github: "", //social github
             },
             cities: []
         }

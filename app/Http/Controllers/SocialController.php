@@ -71,9 +71,12 @@ class SocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Social $social)
     {
-        //
+        $social->fill($request->post())->save();
+        return response()->json([
+            'social' => $social,
+        ]);
     }
 
     /**

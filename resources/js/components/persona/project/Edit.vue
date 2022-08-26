@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-success btn-sm text-white">Save</button>
+                                    <button type="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
                                 </div>
                             </div>
                         </form>

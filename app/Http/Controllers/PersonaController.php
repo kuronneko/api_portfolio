@@ -43,7 +43,22 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->all());
+        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
+        Social::create([
+            'name' => 'GitHub',
+            'content' => $request->github,
+            'persona_id' => $persona->id,
+        ]);
+        Social::create([
+            'name' => 'Email',
+            'content' => $request->email,
+            'persona_id' => $persona->id,
+        ]);
+        Social::create([
+            'name' => 'WhatsApp',
+            'content' => $request->whatsapp,
+            'persona_id' => $persona->id,
+        ]);
         return response()->json([
             'persona' => $persona,
         ]);
@@ -69,7 +84,7 @@ class PersonaController extends Controller
     public function projects(Persona $persona){
         //projects full filter
         //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        $projects = Project::with(['details'])->where('persona_id', $persona->id)->get();
+        $projects = Project::with(['persona','details'])->where('persona_id', $persona->id)->get();
         return response()->json($projects);
     }
 

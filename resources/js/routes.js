@@ -83,17 +83,17 @@ export const routes = [
     },
     {
         name: 'detailProject',
-        path: '/home/project/details/:id',
+        path: '/home/project/details/:projectID/:personaID',
         component:DetailProject
     },
     {
         name: 'createProjectDetail',
-        path: '/home/project/detail/create',
+        path: '/home/project/detail/create/:projectID/:personaID',
         component:DetailProjectCreate
     },
     {
         name: 'editProjectDetail',
-        path: '/home/project/detail/edit/:id',
+        path: '/home/project/detail/edit/:projectID/:personaID',
         component:DetailProjectEdit
     },
 ];

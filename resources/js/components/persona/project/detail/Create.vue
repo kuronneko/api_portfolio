@@ -6,7 +6,7 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Create new Detail</h4>
-                        <router-link :to='{ name: "detailProject", params: { id: this.$route.params.id } }'
+                        <router-link :to='{ name: "detailProject", params: { projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
                             class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <button type="submit"
-                                        class="btn btn-success btn-sm btn-block text-white">Save</button>
+                                        class="btn btn-success btn-sm col-12 text-white">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -38,7 +38,7 @@ export default {
         return {
             detail: {
                 description: "",
-                project_id: this.$route.params.id
+                project_id: this.$route.params.projectID
             },
         }
     },

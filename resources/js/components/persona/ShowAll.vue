@@ -17,8 +17,6 @@
                                         <th>Name</th>
                                         <th>Lastname</th>
                                         <th>Github</th>
-                                        <th>Instagram</th>
-                                        <th>Twitter</th>
                                         <th>WhatsApp</th>
                                         <th>Email</th>
                                         <th>Location</th>
@@ -35,8 +33,6 @@
                                         <td>{{ persona.name }}</td>
                                         <td>{{ persona.lastname }}</td>
                                         <td>{{ getSocialsContent(persona, 'GitHub') }}</td>
-                                        <td>{{ getSocialsContent(persona, 'Instagram') }}</td>
-                                        <td>{{ getSocialsContent(persona, 'Twitter') }}</td>
                                         <td>{{ getSocialsContent(persona, 'WhatsApp') }}</td>
                                         <td>{{ getSocialsContent(persona, 'Email') }}</td>
                                         <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
