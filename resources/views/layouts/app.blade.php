@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo.png" />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -15,7 +17,16 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+    <style>
+        @media only screen and (min-width: 600px) {
+            body{
+                background-image: url(../img/toja.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: right -300px bottom -300px;
+        }
+        }
+    </style>
 
 </head>
 <body class="bg-dark">
@@ -79,16 +90,8 @@
             @yield('content')
         </main>
 
-        <style>
-            @media only screen and (min-width: 600px) {
-                body{
-                    background-image: url(../img/toja.png);
-                    background-repeat: no-repeat;
-                    background-attachment: fixed;
-                    background-position: right -300px bottom -300px;
-            }
-            }
-        </style>
+        <footer class="fixed-bottom bg-dark text-center text-white">{{ config('app.name', 'Laravel') }} developed by <a class="text-success text-decoration-none" href="https://kuronneko.github.io">kuronneko</a></footer>
+
     </div>
 
         <!-- Scripts -->
