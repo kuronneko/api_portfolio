@@ -45,7 +45,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <router-link
-                                                    :to='{ name: "editPersonaProject", params: { projectID: project.id, personaID: project.persona.id } }'
+                                                    :to='{ name: "editPersonaProject", params: { projectID: project.id, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
@@ -53,7 +53,7 @@
                                                     class="btn btn-sm btn-danger">
                                                     <font-awesome-icon icon="fa-solid fa-trash" />
                                                 </a>
-                                                <router-link :to='{ name: "detailProject", params: { projectID: project.id, personaID: project.persona.id } }'
+                                                <router-link :to='{ name: "detailProject", params: { projectID: project.id, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-asterisk" />
                                                 </router-link>

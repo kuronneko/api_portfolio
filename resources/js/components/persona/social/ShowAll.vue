@@ -32,7 +32,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <router-link
-                                                    :to='{ name: "editPersonaSocial", params: { socialID: social.id, personaID: social.persona.id } }'
+                                                    :to='{ name: "editPersonaSocial", params: { socialID: social.id, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>

@@ -29,7 +29,7 @@
                                         <td>{{ skill.level }}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <router-link :to='{ name: "editPersonaSkill", params: { skillID: skill.id, personaID: skill.persona.id } }'
+                                                <router-link :to='{ name: "editPersonaSkill", params: { skillID: skill.id, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
