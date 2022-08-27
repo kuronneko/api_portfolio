@@ -105,7 +105,7 @@ export default {
                         width: 400,
                         background: '#212529',
                         icon: 'success',
-                        title: 'Project deleted successfully',
+                        title: 'Detail deleted successfully',
                         showConfirmButton: false,
                         timer: 1500
                     }
