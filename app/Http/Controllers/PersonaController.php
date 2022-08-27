@@ -84,7 +84,7 @@ class PersonaController extends Controller
     public function projects(Persona $persona){
         //projects full filter
         //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        $projects = Project::with(['persona','details'])->where('persona_id', $persona->id)->get();
+        $projects = Project::with(['persona','details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($projects);
     }
 
@@ -95,7 +95,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function socials(Persona $persona){
-        $socials = Social::with(['persona'])->where('persona_id', $persona->id)->get();
+        $socials = Social::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($socials);
     }
 
@@ -106,7 +106,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function skills(Persona $persona){
-        $skills = Skill::with(['persona'])->where('persona_id', $persona->id)->get();
+        $skills = Skill::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($skills);
     }
 
