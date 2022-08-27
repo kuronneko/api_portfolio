@@ -43,6 +43,10 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+             '*' => 'required'
+        ]);
+
         $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
         Social::create([
             'name' => 'GitHub',

@@ -194,27 +194,34 @@ export default {
         submit() {
             this.v$.$touch();
             if(!this.v$.$error){
-            alert('done')
+            this.successAlert();
             }else{
-            alert('fail')
+            this.errorAlert();
             }
         },
-        clearFields() {
-            this.persona = {
-                name: "",
-                lastname: "",
-                title: "",
-                description: "",
-                about: "",
-                //status: "",
-                experience: "",
-                city_id: "",
-                user_id: "",
-                email: "", //social email
-                whatsapp: "", //social whatsapp
-                github: "", //social github
-            },
-                this.cities = []
+            errorAlert(){
+            this.$swal({
+                position: 'center',
+                color: '#fff',
+                width: 400,
+                background: '#212529',
+                icon: 'error',
+                title: 'All fields are required',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+            successAlert(){
+            this.$swal({
+                position: 'center',
+                color: '#fff',
+                width: 400,
+                background: '#212529',
+                icon: 'success',
+                title: 'Persona created successfully',
+                showConfirmButton: false,
+                timer: 1500
+            });
         },
         async create() {
             await this.axios.post('/api/persona', this.persona)
