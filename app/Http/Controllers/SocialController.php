@@ -36,6 +36,10 @@ class SocialController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $social = Social::create($request->post());
         return response()->json([
             'social' => $social,
@@ -73,6 +77,10 @@ class SocialController extends Controller
      */
     public function update(Request $request, Social $social)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $social->fill($request->post())->save();
         return response()->json([
             'social' => $social,

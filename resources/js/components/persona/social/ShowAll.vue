@@ -79,15 +79,40 @@ export default {
                 })
         },
         deletePersonaSocial(id) {
-            if (confirm("Do you want to delete this entry?")) {
-                this.axios.delete(`/api/social/${id}`)
+                       this.$swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                background: '#212529',
+                color: '#fff',
+                width: 400,
+                position: 'center',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                 this.axios.delete(`/api/social/${id}`)
                     .then(response => {
                         this.showSocials()
                     })
                     .catch(error => {
                         console(error)
                     })
-            }
+                    this.$swal({
+                        position: 'center',
+                        color: '#fff',
+                        width: 400,
+                        background: '#212529',
+                        icon: 'success',
+                        title: 'Social deleted successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }
+                    )
+                }
+            })
         },
     }
 }
