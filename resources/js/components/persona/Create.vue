@@ -9,7 +9,7 @@
                         <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
-                        <form @submit.prevent="create">
+                        <form @submit.prevent="">
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <div class="row">
@@ -195,6 +195,7 @@ export default {
             this.v$.$touch();
             if(!this.v$.$error){
             this.successAlert();
+            this.create(); //remove create from submit.prevent and set here, to valida frist on front and back if front fail
             }else{
             this.errorAlert();
             }
