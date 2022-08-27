@@ -16,7 +16,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input type="text" class="form-control" v-model="persona.name" :class="
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.name" :class="
                                                 v$.persona.name.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.name.$errors"
                                                     :key="error.$uid">
@@ -25,7 +25,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Lastname</label>
-                                                <input type="text" class="form-control" v-model="persona.lastname"
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.lastname"
                                                     :class="
                                                     v$.persona.lastname.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.lastname.$errors"
@@ -35,7 +35,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>City</label><br>
-                                                <select v-model="persona.city_id" :class="
+                                                <select v-model="persona.city_id" class="text-bg-dark border border-secondary" :class="
                                                 v$.persona.city_id.$error === true ? 'border border-danger' : ''">
                                                     <option v-for="city in cities" :value="city.id" :key="city.id">{{
                                                             city.name
@@ -49,7 +49,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Title</label>
-                                                <input type="text" class="form-control" v-model="persona.title" :class="
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.title" :class="
                                                 v$.persona.title.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.title.$errors"
                                                     :key="error.$uid">
@@ -63,7 +63,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" v-model="persona.email" :class="
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.email" :class="
                                                 v$.persona.email.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.email.$errors"
                                                     :key="error.$uid">
@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>GitHub</label>
-                                                <input type="text" class="form-control" v-model="persona.github" :class="
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.github" :class="
                                                 v$.persona.github.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.github.$errors"
                                                     :key="error.$uid">
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>WhatsApp</label>
-                                                <input type="text" class="form-control" v-model="persona.whatsapp"
+                                                <input type="text" class="form-control text-bg-dark border border-secondary" v-model="persona.whatsapp"
                                                     :class="
                                                     v$.persona.whatsapp.$error === true ? 'border border-danger' : ''">
                                                 <span class="text-danger small" v-for="error of v$.persona.whatsapp.$errors"
@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Experience</label><br>
-                                                <select v-model="persona.experience"
+                                                <select v-model="persona.experience" class="text-bg-dark border border-secondary"
                                                     :class="
                                                     v$.persona.experience.$error === true ? 'border border-danger' : ''">
                                                     <option v-for="i in 20" :value="i" :key="i">{{ i }}
@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea cols="30" rows="2" class="form-control" v-model="persona.description"
+                                        <textarea cols="30" rows="2" class="form-control text-bg-dark border border-secondary" v-model="persona.description"
                                             :class="
                                             v$.persona.description.$error === true ? 'border border-danger' : ''">
                                                     </textarea>
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>About</label>
-                                        <textarea cols="30" rows="2" class="form-control" v-model="persona.about"
+                                        <textarea cols="30" rows="2" class="form-control text-bg-dark border border-secondary" v-model="persona.about"
                                             :class="
                                             v$.persona.about.$error === true ? 'border border-danger' : ''">
                                                     </textarea>
@@ -142,7 +142,8 @@
 
 <script>
 import useVuelidate from '@vuelidate/core'
-import { required, email, numeric, url, helpers, maxLength, alpha } from '@vuelidate/validators'
+import { required, email, numeric, url, helpers, maxLength, minLength, alpha, alphaNum, minValue } from '@vuelidate/validators'
+const alpha2 = helpers.regex(/^[a-zA-ZÀ-ÿ\s]{1,16}$/i);
 export default {
     name: "create-persona",
     setup() {
@@ -170,19 +171,19 @@ export default {
     validations() {
         return {
             persona: {
-                name: { required:helpers.withMessage("Name is required", required), $autoDirty:true, maxLengthValue: maxLength(10), alpha },
-                lastname: { required, $autoDirty:true },
-                title: { required, $autoDirty:true },
+                //name: { required:helpers.withMessage("Name is required", required), $autoDirty:true, maxLengthValue: maxLength(16), alpha },
+                name: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), $autoDirty: true },
+                lastname: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), autoDirty:true, },
+                title: { required, $autoDirty:true, maxLengthValue: maxLength(26) },
                 description: { required, $autoDirty:true },
-                about: { required, $autoDirty:true},
+                about: { required, $autoDirty:true },
                 //status: "",
-                experience: { required, numeric, $autoDirty:true },
-                city_id: { required, $autoDirty:true },
+                experience: { required, $autoDirty:true, numeric },
+                city_id: { required, $autoDirty:true, numeric },
                 //user_id: { required },
-                email: { required, email, $autoDirty:true }, //social email
-                whatsapp: { required, numeric, $autoDirty:true }, //social whatsapp
-                github: { required, url, $autoDirty:true }, //social github
-
+                email: { required, $autoDirty:true, email }, //social email
+                whatsapp: { required, $autoDirty:true, numeric, minLengthValue: minLength(11), maxLengthValue: maxLength(11) }, //social whatsapp
+                github: { required, $autoDirty:true, url }, //social github
             }
         }
     },
@@ -194,8 +195,8 @@ export default {
         submit() {
             this.v$.$touch();
             if(!this.v$.$error){
-            this.successAlert();
             this.create(); //remove create from submit.prevent and set here, to valida frist on front and back if front fail
+            this.successAlert();
             }else{
             this.errorAlert();
             }

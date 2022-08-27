@@ -165,6 +165,10 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
+        $request->validate([
+            '*' => 'required'
+       ]);
+
         $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
         return response()->json([
             'persona' => $persona,
