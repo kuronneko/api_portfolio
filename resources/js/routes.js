@@ -43,7 +43,7 @@ export const routes = [
     },
     {
         name: 'createPersonaProject',
-        path: '/home/project/create',
+        path: '/home/project/create/:personaID',
         component:ProjectPersonaCreate
     },
     {
@@ -58,7 +58,7 @@ export const routes = [
     },
     {
         name: 'createPersonaSocial',
-        path: '/home/social/create',
+        path: '/home/social/create/:personaID',
         component:SocialPersonaCreate
     },
     {
@@ -73,7 +73,7 @@ export const routes = [
     },
     {
         name: 'createPersonaSkill',
-        path: '/home/skill/create',
+        path: '/home/skill/create/:personaID',
         component:SkillPersonaCreate
     },
     {
@@ -93,7 +93,7 @@ export const routes = [
     },
     {
         name: 'editProjectDetail',
-        path: '/home/project/detail/edit/:projectID/:personaID',
+        path: '/home/project/detail/edit/:detailID/:projectID/:personaID',
         component:DetailProjectEdit
     },
 ];

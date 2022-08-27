@@ -9,7 +9,7 @@
                             :to='{ name: "createProjectDetail", params: { projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
                             class="btn btn-sm btn-success text-white">New Detail
                         </router-link>
-                        <router-link :to='{ name: "projectPersona", params: { id: this.$route.params.personaID } }'
+                        <router-link :to='{ name: "projectPersona", params: { personaID: this.$route.params.personaID } }'
                             class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
@@ -30,7 +30,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <router-link
-                                                    :to='{ name: "editProjectDetail", params: { detailID: detail.id } }'
+                                                    :to='{ name: "editProjectDetail", params: { detailID: detail.id, projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
