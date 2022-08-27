@@ -58,6 +58,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $project = Project::create($request->post());
         return response()->json([
             'project' => $project,
@@ -106,6 +110,10 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $project->fill($request->post())->save();
         return response()->json([
             'project' => $project,
