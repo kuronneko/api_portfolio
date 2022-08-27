@@ -173,7 +173,7 @@ export default {
             persona: {
                 //name: { required:helpers.withMessage("Name is required", required), $autoDirty:true, maxLengthValue: maxLength(16), alpha },
                 name: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), $autoDirty: true },
-                lastname: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), autoDirty:true, },
+                lastname: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), autoDirty:true },
                 title: { required, $autoDirty:true, maxLengthValue: maxLength(26) },
                 description: { required, $autoDirty:true },
                 about: { required, $autoDirty:true },

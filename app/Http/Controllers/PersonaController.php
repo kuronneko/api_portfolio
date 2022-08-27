@@ -167,7 +167,7 @@ class PersonaController extends Controller
     {
         $request->validate([
             '*' => 'required'
-       ]);
+        ]);
 
         $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
         return response()->json([
