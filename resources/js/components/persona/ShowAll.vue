@@ -17,8 +17,6 @@
                                         <th>Name</th>
                                         <th>Lastname</th>
                                         <th>Github</th>
-                                        <th>Instagram</th>
-                                        <th>Twitter</th>
                                         <th>WhatsApp</th>
                                         <th>Email</th>
                                         <th>Location</th>
@@ -35,8 +33,6 @@
                                         <td>{{ persona.name }}</td>
                                         <td>{{ persona.lastname }}</td>
                                         <td>{{ getSocialsContent(persona, 'GitHub') }}</td>
-                                        <td>{{ getSocialsContent(persona, 'Instagram') }}</td>
-                                        <td>{{ getSocialsContent(persona, 'Twitter') }}</td>
                                         <td>{{ getSocialsContent(persona, 'WhatsApp') }}</td>
                                         <td>{{ getSocialsContent(persona, 'Email') }}</td>
                                         <td>{{ persona.city.name + ', ' + persona.city.country.name }}</td>
@@ -54,7 +50,8 @@
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <router-link :to='{ name: "editPersona", params: { id: persona.id } }'
+                                                <router-link
+                                                    :to='{ name: "editPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
@@ -63,15 +60,17 @@
                                                     <font-awesome-icon icon="fa-solid fa-trash" />
                                                 </a>
                                                 <router-link
-                                                    :to='{ name: "projectPersona", params: { id: persona.id } }'
+                                                    :to='{ name: "projectPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-diagram-project" />
                                                 </router-link>
-                                                <router-link :to='{ name: "socialPersona", params: { id: persona.id } }'
+                                                <router-link
+                                                    :to='{ name: "socialPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-rss" />
                                                 </router-link>
-                                                    <router-link :to='{ name: "skillPersona", params: { id: persona.id } }'
+                                                <router-link
+                                                    :to='{ name: "skillPersona", params: { personaID: persona.id } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-wand-sparkles" />
                                                 </router-link>
@@ -112,15 +111,40 @@ export default {
                 })
         },
         deletePersona(id) {
-            if (confirm("Do you want to delete this entry?")) {
-                this.axios.delete(`/api/persona/${id}`)
-                    .then(response => {
-                        this.showPersonas()
-                    })
-                    .catch(error => {
-                        console(error)
-                    })
-            }
+            this.$swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                background: '#212529',
+                color: '#fff',
+                width: 400,
+                position: 'center',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.axios.delete(`/api/persona/${id}`)
+                        .then(response => {
+                            this.showPersonas()
+                        })
+                        .catch(error => {
+                            console(error)
+                        })
+                    this.$swal({
+                        position: 'center',
+                        color: '#fff',
+                        width: 400,
+                        background: '#212529',
+                        icon: 'success',
+                        title: 'Persona deleted successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }
+                    )
+                }
+            })
         },
         statusPersona(id) {
             this.axios.put(`/api/persona/status/${id}`)
@@ -131,7 +155,6 @@ export default {
                     console(error)
                 })
         },
-
         getSocialsContent(data, socialName) {
             let socialNameContent = data.socials.filter(({ name }) => name.includes(socialName) ?? false);
             if (socialNameContent.length > 0) {
@@ -140,7 +163,6 @@ export default {
                 return '';
             }
         }
-
     }
 }
 </script>

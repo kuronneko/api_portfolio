@@ -5,10 +5,12 @@
                 <div class="card bg-dark text-white border border-secondary">
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
-                        <router-link :to='{ name: "createProjectDetail", params: { id: this.detailsID } }'
+                        <router-link
+                            :to='{ name: "createProjectDetail", params: { projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
                             class="btn btn-sm btn-success text-white">New Detail
                         </router-link>
-                        <router-link :to='{ name: "projectPersona", params: { id: this.$route.params.id } }'
+                        <router-link
+                            :to='{ name: "projectPersona", params: { personaID: this.$route.params.personaID } }'
                             class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
@@ -29,7 +31,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <router-link
-                                                    :to='{ name: "editProjectDetail", params: { id: detail.id } }'
+                                                    :to='{ name: "editProjectDetail", params: { detailID: detail.id, projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
                                                     class="btn btn-sm btn-success text-white">
                                                     <font-awesome-icon icon="fa-solid fa-pen-to-square" />
                                                 </router-link>
@@ -59,7 +61,6 @@ export default {
     name: "details",
     data() {
         return {
-            detailsID: this.$route.params.id,
             details: [],
         }
     },
@@ -68,26 +69,49 @@ export default {
     },
     methods: {
         async showDetails() {
-            await this.axios.get(`/api/project/details/${this.$route.params.id}`)
+            await this.axios.get(`/api/project/details/${this.$route.params.projectID}`)
                 .then(response => {
                     this.details = response.data;
-                    let [firstDetails] = this.details;// es6 syntax of destructing the array
-                    this.$route.params.id = firstDetails.project.persona.id; //assing new id to params to use button back
                 })
                 .catch(error => {
                     this.details = []
                 })
         },
         deleteProjectDetail(id) {
-            if (confirm("Do you want to delete this entry?")) {
-                this.axios.delete(`/api/detail/${id}`)
-                    .then(response => {
-                        this.showDetails()
-                    })
-                    .catch(error => {
-                        console(error)
-                    })
-            }
+            this.$swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                background: '#212529',
+                color: '#fff',
+                width: 400,
+                position: 'center',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.axios.delete(`/api/detail/${id}`)
+                        .then(response => {
+                            this.showDetails()
+                        })
+                        .catch(error => {
+                            console(error)
+                        })
+                    this.$swal({
+                        position: 'center',
+                        color: '#fff',
+                        width: 400,
+                        background: '#212529',
+                        icon: 'success',
+                        title: 'Detail deleted successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }
+                    )
+                }
+            })
         },
     }
 }

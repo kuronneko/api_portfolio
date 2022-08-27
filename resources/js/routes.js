@@ -33,67 +33,67 @@ export const routes = [
     },
     {
         name: 'editPersona',
-        path: '/home/edit/:id',
+        path: '/home/edit/:personaID',
         component:Edit
     },
        {
         name: 'projectPersona',
-        path: '/home/projects/:id',
+        path: '/home/projects/:personaID',
         component:ProjectPersona
     },
     {
         name: 'createPersonaProject',
-        path: '/home/project/create',
+        path: '/home/project/create/:personaID',
         component:ProjectPersonaCreate
     },
     {
         name: 'editPersonaProject',
-        path: '/home/project/edit/:id',
+        path: '/home/project/edit/:projectID/:personaID',
         component:ProjectPersonaEdit
     },
     {
         name: 'socialPersona',
-        path: '/home/socials/:id',
+        path: '/home/socials/:personaID',
         component:SocialPersona
     },
     {
         name: 'createPersonaSocial',
-        path: '/home/social/create',
+        path: '/home/social/create/:personaID',
         component:SocialPersonaCreate
     },
     {
         name: 'editPersonaSocial',
-        path: '/home/social/edit/:id',
+        path: '/home/social/edit/:socialID/:personaID',
         component:SocialPersonaEdit
     },
     {
         name: 'skillPersona',
-        path: '/home/skills/:id',
+        path: '/home/skills/:personaID',
         component:SkillPersona
     },
     {
         name: 'createPersonaSkill',
-        path: '/home/skill/create',
+        path: '/home/skill/create/:personaID',
         component:SkillPersonaCreate
     },
     {
         name: 'editPersonaSkill',
-        path: '/home/skill/edit/:id',
+        path: '/home/skill/edit/:skillID/:personaID',
         component:SkillPersonaEdit
     },
     {
         name: 'detailProject',
-        path: '/home/project/details/:id',
+        path: '/home/project/details/:projectID/:personaID',
         component:DetailProject
     },
     {
         name: 'createProjectDetail',
-        path: '/home/project/detail/create',
+        path: '/home/project/detail/create/:projectID/:personaID',
         component:DetailProjectCreate
     },
     {
         name: 'editProjectDetail',
-        path: '/home/project/detail/edit/:id',
+        path: '/home/project/detail/edit/:detailID/:projectID/:personaID',
         component:DetailProjectEdit
     },
 ];

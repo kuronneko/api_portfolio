@@ -43,7 +43,26 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->all());
+        $request->validate([
+             '*' => 'required'
+        ]);
+
+        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
+        Social::create([
+            'name' => 'GitHub',
+            'content' => $request->github,
+            'persona_id' => $persona->id,
+        ]);
+        Social::create([
+            'name' => 'Email',
+            'content' => $request->email,
+            'persona_id' => $persona->id,
+        ]);
+        Social::create([
+            'name' => 'WhatsApp',
+            'content' => $request->whatsapp,
+            'persona_id' => $persona->id,
+        ]);
         return response()->json([
             'persona' => $persona,
         ]);
@@ -69,7 +88,7 @@ class PersonaController extends Controller
     public function projects(Persona $persona){
         //projects full filter
         //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        $projects = Project::with(['details'])->where('persona_id', $persona->id)->get();
+        $projects = Project::with(['persona','details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($projects);
     }
 
@@ -80,7 +99,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function socials(Persona $persona){
-        $socials = Social::where('persona_id', $persona->id)->get();
+        $socials = Social::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($socials);
     }
 
@@ -91,7 +110,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function skills(Persona $persona){
-        $skills = Skill::where('persona_id', $persona->id)->get();
+        $skills = Skill::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($skills);
     }
 
@@ -146,6 +165,10 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
         return response()->json([
             'persona' => $persona,

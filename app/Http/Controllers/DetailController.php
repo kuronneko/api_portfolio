@@ -35,6 +35,10 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $detail = Detail::create($request->post());
         return response()->json([
             'detail' => $detail,
@@ -72,6 +76,10 @@ class DetailController extends Controller
      */
     public function update(Request $request, Detail $detail)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $detail->fill($request->post())->save();
         return response()->json([
             'detail' => $detail,

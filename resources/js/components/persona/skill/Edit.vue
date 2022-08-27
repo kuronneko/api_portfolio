@@ -6,26 +6,39 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <h4>Edit Skill</h4>
-                        <router-link :to='{ name: "skillPersona", params: { id: this.$route.params.id } }' class="btn btn-success btn-sm text-white">Back</router-link>
+                        <router-link :to='{ name: "skillPersona", params: { personaID: this.$route.params.personaID } }'
+                            class="btn btn-success btn-sm text-white">Back</router-link>
                     </div>
                     <div class="card-body">
-                        <form @submit.prevent="update">
+                        <form @submit.prevent="">
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" v-model="skill.name">
+                                        <input type="text" class="form-control text-bg-dark border border-secondary"
+                                            v-model="skill.name" :class="
+                                            v$.skill.name.$error === true ? 'border border-danger' : ''">
+                                        <span class="text-danger small" v-for="error of v$.skill.name.$errors"
+                                            :key="error.$uid">
+                                            {{ error.$message }}
+                                        </span>
                                     </div>
                                     <div class="form-group">
                                         <label>Level</label><br>
-                                        <select v-model="skill.level">
+                                        <select v-model="skill.level" class="text-bg-dark border border-secondary"
+                                            :class="
+                                            v$.skill.level.$error === true ? 'border border-danger' : ''">
                                             <option v-for="i in 100" :value="i" :key="i">{{ i }}
                                             </option>
-                                        </select>
+                                        </select><br>
+                                        <span class="text-danger small" v-for="error of v$.skill.level.$errors"
+                                            :key="error.$uid">
+                                            {{ error.$message }}
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn btn-success btn-sm text-white">Save</button>
+                                    <button type="submit" @click="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -37,35 +50,80 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, email, numeric, url, helpers, maxLength, minLength, alpha, alphaNum, minValue, maxValue } from '@vuelidate/validators'
 export default {
     name: "edit-skill",
+    name: "create-skill",
+    setup() {
+        return { v$: useVuelidate() }
+    },
     data() {
         return {
             skill: {
-                id: this.$route.params.id, //save skill id at start
                 name: "",
                 level: "",
             },
+        }
+    },
+    validations() {
+        return {
+            skill: {
+                name: { required, maxLengthValue: maxLength(16), alpha, $autoDirty: true },
+                level: { required, minValue: minValue(1), maxValue: maxLength(100), numeric, $autoDirty: true }, //social whatsapp
+            }
         }
     },
     mounted() {
         this.showSkill()
     },
     methods: {
+        submit() {
+            this.v$.$touch();
+            if (!this.v$.$error) {
+                this.update(); //remove create from submit.prevent and set here, to valida frist on front and back if front fail
+                this.successAlert();
+            } else {
+                this.errorAlert();
+            }
+        },
+        errorAlert() {
+            this.$swal({
+                position: 'center',
+                color: '#fff',
+                width: 400,
+                background: '#212529',
+                icon: 'error',
+                title: 'All fields are required',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        successAlert() {
+            this.$swal({
+                position: 'center',
+                color: '#fff',
+                width: 400,
+                background: '#212529',
+                icon: 'success',
+                title: 'Skill edited successfully',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
         async showSkill() {
-            await this.axios.get(`/api/skill/${this.$route.params.id}`)
+            await this.axios.get(`/api/skill/${this.$route.params.skillID}`)
                 .then(response => {
-                    const { name, level, persona_id} = response.data
+                    const { name, level, persona_id } = response.data
                     this.skill.name = name,
-                    this.skill.level = level
-                    this.$route.params.id = persona_id //set route id with persona id
+                        this.skill.level = level
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
         async update() {
-            await this.axios.put(`/api/skill/${this.skill.id}`, this.skill)
+            await this.axios.put(`/api/skill/${this.$route.params.skillID}`, this.skill)
                 .then(response => {
                     this.$router.push({
                         name: "skillPersona" //showSkillPersona

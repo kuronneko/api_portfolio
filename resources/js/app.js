@@ -44,10 +44,13 @@ const vueProgressBarOptions = {
     location: "top",
     inverse: false,
   };
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 createApp(App)
 .use(router)
 .use(VueAxios, axios)
 .use(VueProgressBar, vueProgressBarOptions)
+.use(VueSweetalert2)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#vapp');

@@ -35,6 +35,10 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $skill = Skill::create($request->post());
         return response()->json([
             'skill' => $skill,
@@ -72,6 +76,10 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
+        $request->validate([
+            '*' => 'required'
+        ]);
+
         $skill->fill($request->post())->save();
         return response()->json([
             'skill' => $skill,
