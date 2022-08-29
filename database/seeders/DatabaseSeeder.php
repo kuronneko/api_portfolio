@@ -453,6 +453,47 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
+        $project7_p1 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'ApiGestor9000',
+            'title' => 'ApiGestor9000',
+            'description' => 'PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project7_p1->id,
+            'description' => 'Relational Database desing from Scratch',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p1->id,
+            'description' => 'Laravel API',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p1->id,
+            'description' => 'VueJS to asyncronous request',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p1->id,
+            'description' => 'Bootstrap 5 for the UI',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p1->id,
+            'description' => 'Forms Validate with Vuelidate, Pop-up Messages with SweetAlert2, Loader effect with VueLoader',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
            /////// Persona2, Project2 ///////
 
         $persona2 = Persona::create([
@@ -839,6 +880,46 @@ class DatabaseSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
+        $project7_p2 = Project::create([
+            'persona_id' => $persona1->id,
+            'name' => 'ApiGestor9000',
+            'title' => 'ApiGestor9000',
+            'description' => 'PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.',
+            'status' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        Detail::create([
+            'project_id' => $project7_p2->id,
+            'description' => 'Relational Database desing from Scratch',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p2->id,
+            'description' => 'Laravel API',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p2->id,
+            'description' => 'VueJS to asyncronous request',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p2->id,
+            'description' => 'Bootstrap 5 for the UI',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        Detail::create([
+            'project_id' => $project7_p2->id,
+            'description' => 'Forms Validate with Vuelidate, Pop-up Messages with SweetAlert2, Loader effect with VueLoader',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
 
     }
