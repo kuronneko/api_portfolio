@@ -36,6 +36,9 @@ The purpose of this project is to consume this content in a portfolio developed 
 * npm install && npm run dev
 * login as admin@gmail.com:12345678
 
+### Consume API
+* Consume single persona profile using: http://127.0.0.1:8000/api/persona/get/admin@gmail.com
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
