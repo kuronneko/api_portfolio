@@ -881,7 +881,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $project7_p2 = Project::create([
-            'persona_id' => $persona1->id,
+            'persona_id' => $persona2->id,
             'name' => 'ApiGestor9000',
             'title' => 'ApiGestor9000',
             'description' => 'PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.',
