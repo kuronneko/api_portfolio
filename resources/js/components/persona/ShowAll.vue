@@ -168,7 +168,13 @@ export default {
             if(this.personas.length > 0){
                 let [firstDetails] = this.personas;// es6 syntax of destructing the array
                 let userEmail = firstDetails.user.email; //assing new id to params
-                navigator.clipboard.writeText('https://'+location.hostname+'/api/persona/get/'+userEmail);
+                let hostname = location.hostname;
+                let protocol = 'https';
+                if(hostname === '127.0.0.1'){
+                    hostname = hostname+':8000';
+                    protocol = 'http';
+                }
+                navigator.clipboard.writeText(protocol+'://'+hostname+'/api/persona/get/'+userEmail);
                 this.$swal({
                 position: 'center',
                 color: '#fff',
@@ -176,7 +182,7 @@ export default {
                 width: 400,
                 background: '#212529',
                 icon: 'success',
-                title: 'Consumes your profile using: ' +'https://'+location.hostname+'/api/persona/get/'+userEmail+'',
+                title: 'Consumes your profile using: ' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+'',
             });
             }
         },
