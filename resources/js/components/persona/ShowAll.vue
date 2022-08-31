@@ -174,7 +174,9 @@ export default {
                     hostname = hostname+':8000';
                     protocol = 'http';
                 }
-                navigator.clipboard.writeText(protocol+'://'+hostname+'/api/persona/get/'+userEmail);
+                if(navigator.clipboard) {
+                    navigator.clipboard.writeText(protocol+'://'+hostname+'/api/persona/get/'+userEmail);
+                }
                 this.$swal({
                 position: 'center',
                 color: '#fff',
