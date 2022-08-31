@@ -3,10 +3,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card bg-dark text-white border border-secondary">
-                    <div class="card-header border border-secondary border-top-0 border-start-0 border-end-0">
+                    <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <router-link :to='{ name: "createPersona" }' class="btn btn-sm btn-success text-white">New
                             Persona
                         </router-link>
+                        <button class="btn btn-sm btn-success" @click="apiFetch"><font-awesome-icon icon="fa-solid fa-link" /></button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -162,7 +163,25 @@ export default {
             } else {
                 return '';
             }
-        }
+        },
+        apiFetch(){
+            if(this.personas.length > 0){
+                let [firstDetails] = this.personas;// es6 syntax of destructing the array
+                let userEmail = firstDetails.user.email; //assing new id to params
+                let url = window.location.href;
+                let before = url.substring(0, url.indexOf('/home'));
+                navigator.clipboard.writeText(before+'/api/persona/get/'+userEmail);
+                this.$swal({
+                position: 'center',
+                color: '#fff',
+                confirmButtonColor: '#198754',
+                width: 400,
+                background: '#212529',
+                icon: 'success',
+                title: 'Consumes your profile using: ' +before+'/api/persona/get/'+userEmail+'',
+            });
+            }
+        },
     }
 }
 </script>
