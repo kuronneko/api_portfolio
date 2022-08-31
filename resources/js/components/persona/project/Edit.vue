@@ -163,6 +163,7 @@ export default {
                     this.project.name = name
                     this.project.title = title
                     this.project.description = description
+                    this.project.demo = demo
                     this.project.source = source
                     this.project.image = image
                 })

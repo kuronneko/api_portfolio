@@ -264,6 +264,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
             'status' => 1,
+            'demo' => 'https://cyberpunkwaifus.xyz/',
+            'source' => 'https://github.com/kuronneko/cbpw2.22l',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliocbpw.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -307,6 +310,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
+            'demo' => 'https://sexygatitas.cl/',
+            'source' => '',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -342,6 +348,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
+            'demo' => 'https://javparadise.xyz/',
+            'source' => '',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -371,6 +380,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Kuroneko EncrypterTool',
             'description' => 'Simple algorithm for encrypting text, based on the hexadecimal system. This console application works as a password manager using the kuro algorithm to encrypt text and store it in a database.',
             'status' => 1,
+            'demo' => '',
+            'source' => 'https://github.com/kuronneko/kuro2et',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliokuro.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -395,6 +407,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Web App that allows you to generate statistical graphs of the information obtained through report forms.
             Old App built with raw PHP.',
             'status' => 1,
+            'demo' => '',
+            'source' => 'https://github.com/kuronneko/3lectrotelapp',
+            'image' => 'https://kuronneko.github.io/assets/img/portfolio3lectrotel.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -424,6 +439,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'wikiPlantas',
             'description' => 'wikiPlantas is a web application designed to build a repository with information about plants and herbs.',
             'status' => 1,
+            'demo' => 'http://wikiplantas.herokuapp.com/',
+            'source' => 'https://github.com/kuronneko/dash_roles',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliowp.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -459,6 +477,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'ApiGestor9000',
             'description' => 'PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.',
             'status' => 1,
+            'demo' => 'https://apiportfolio9000.herokuapp.com/',
+            'source' => 'https://github.com/kuronneko/api_portfolio',
+            'image' => 'https://kuronneko.github.io/assets/img/portfolioapi.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -691,6 +712,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
             'status' => 1,
+            'demo' => 'https://sexygatitas.cl/',
+            'source' => '',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -734,6 +758,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
+            'demo' => 'https://sexygatitas.cl/',
+            'source' => '',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -769,6 +796,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
+            'demo' => 'https://javparadise.xyz/',
+            'source' => '',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -798,6 +828,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'Kuroneko EncrypterTool',
             'description' => 'Simple algorithm for encrypting text, based on the hexadecimal system. This console application works as a password manager using the kuro algorithm to encrypt text and store it in a database.',
             'status' => 1,
+            'demo' => '',
+            'source' => 'https://github.com/kuronneko/kuro2et',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliokuro.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -822,6 +855,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Web App that allows you to generate statistical graphs of the information obtained through report forms.
             Old App built with raw PHP.',
             'status' => 1,
+            'demo' => 'http://wikiplantas.herokuapp.com/',
+            'source' => 'https://github.com/kuronneko/dash_roles',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliowp.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -851,6 +887,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'wikiPlantas',
             'description' => 'wikiPlantas is a web application designed to build a repository with information about plants and herbs.',
             'status' => 1,
+            'demo' => 'http://wikiplantas.herokuapp.com/',
+            'source' => 'https://github.com/kuronneko/dash_roles',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliowp.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -886,6 +925,9 @@ class DatabaseSeeder extends Seeder
             'title' => 'ApiGestor9000',
             'description' => 'PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.',
             'status' => 1,
+            'demo' => 'https://apiportfolio9000.herokuapp.com/',
+            'source' => 'https://github.com/kuronneko/api_portfolio',
+            'image' => 'https://kuronneko.github.io/assets/img/portfolioapi.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
