@@ -170,7 +170,7 @@ export default {
                 let userEmail = firstDetails.user.email; //assing new id to params
                 let hostname = location.hostname;
                 let protocol = 'https';
-                if(hostname === '127.0.0.1'){
+                if(hostname == '127.0.0.1'){
                     hostname = hostname+':8000';
                     protocol = 'http';
                 }
