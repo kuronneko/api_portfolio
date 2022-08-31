@@ -10,10 +10,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk } from '@fortawesome/free-solid-svg-icons'
+import { faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk, faLink } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk)
+library.add(faToggleOn,faToggleOff,faPenToSquare,faTrash,faDiagramProject,faWandSparkles, faRss, faAsterisk, faLink)
 
 import { createApp } from 'vue';
 import App from './components/App.vue';
