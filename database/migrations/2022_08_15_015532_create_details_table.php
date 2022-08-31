@@ -18,6 +18,9 @@ class CreateDetailsTable extends Migration
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
             $table->text('description');
+            $table->text('demo');
+            $table->text('source');
+            $table->text('image');
             $table->timestamps();
         });
     }

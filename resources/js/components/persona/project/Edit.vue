@@ -44,6 +44,36 @@
                                             {{ error.$message }}
                                         </span>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Demo Link</label>
+                                        <input type="text" class="form-control text-bg-dark border border-secondary"
+                                            v-model="project.demo" :class="
+                                            v$.project.demo.$error === true ? 'border border-danger' : ''">
+                                        <span class="text-danger small" v-for="error of v$.project.demo.$errors"
+                                            :key="error.$uid">
+                                            {{ error.$message }}
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Source Link</label>
+                                        <input type="text" class="form-control text-bg-dark border border-secondary"
+                                            v-model="project.source" :class="
+                                            v$.project.source.$error === true ? 'border border-danger' : ''">
+                                        <span class="text-danger small" v-for="error of v$.project.source.$errors"
+                                            :key="error.$uid">
+                                            {{ error.$message }}
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image Link</label>
+                                        <input type="text" class="form-control text-bg-dark border border-secondary"
+                                            v-model="project.image" :class="
+                                            v$.project.image.$error === true ? 'border border-danger' : ''">
+                                        <span class="text-danger small" v-for="error of v$.project.image.$errors"
+                                            :key="error.$uid">
+                                            {{ error.$message }}
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <button type="submit" @click="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
@@ -71,6 +101,9 @@ export default {
                 name: "",
                 title: "",
                 description: "",
+                demo: "",
+                source: "",
+                image: "",
             },
         }
     },
@@ -80,6 +113,9 @@ export default {
                 name: { required, maxLengthValue: maxLength(16), alphaNum, $autoDirty: true },
                 title: { required, maxLengthValue: maxLength(36), $autoDirty: true },
                 description: { required, maxLengthValue: maxLength(800), $autoDirty: true },
+                demo: { required, maxLengthValue: maxLength(296), $autoDirty: true },
+                source: { required, maxLengthValue: maxLength(296), $autoDirty: true },
+                image: { required, maxLengthValue: maxLength(296), $autoDirty: true },
             }
         }
     },
@@ -123,10 +159,12 @@ export default {
         async showProject() {
             await this.axios.get(`/api/project/${this.$route.params.projectID}`)
                 .then(response => {
-                    const { name, title, description, persona_id } = response.data
-                    this.project.name = name,
+                    const { name, title, description, demo, source, image } = response.data
+                    this.project.name = name
                     this.project.title = title
                     this.project.description = description
+                    this.project.source = source
+                    this.project.image = image
                 })
                 .catch(error => {
                     console.log(error)
