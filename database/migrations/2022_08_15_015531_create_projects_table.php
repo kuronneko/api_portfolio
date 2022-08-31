@@ -18,8 +18,11 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('persona_id');
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->string('name');
-            $table->text('title');
+            $table->string('title');
             $table->text('description');
+            $table->string('demo');
+            $table->string('source');
+            $table->string('image');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -21,9 +21,7 @@
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Demo</th>
                                         <th>Source</th>
-                                        <th>Image</th>
                                         <th>Options</th>
                                         <th>Last Updated</th>
                                     </tr>
@@ -46,9 +44,7 @@
                                                 <font-awesome-icon icon="fa-solid fa-toggle-off" />
                                             </a>
                                         </td>
-                                        <td>{{ project.demo }}</td>
                                         <td>{{ project.source }}</td>
-                                        <td>{{ project.image }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <router-link

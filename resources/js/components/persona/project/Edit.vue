@@ -113,9 +113,9 @@ export default {
                 name: { required, maxLengthValue: maxLength(16), alphaNum, $autoDirty: true },
                 title: { required, maxLengthValue: maxLength(36), $autoDirty: true },
                 description: { required, maxLengthValue: maxLength(800), $autoDirty: true },
-                demo: { required, maxLengthValue: maxLength(296), $autoDirty: true },
-                source: { required, maxLengthValue: maxLength(296), $autoDirty: true },
-                image: { required, maxLengthValue: maxLength(296), $autoDirty: true },
+                demo: { required, maxLengthValue: maxLength(255), $autoDirty: true },
+                source: { required, maxLengthValue: maxLength(255), $autoDirty: true },
+                image: { required, maxLengthValue: maxLength(255), $autoDirty: true },
             }
         }
     },
