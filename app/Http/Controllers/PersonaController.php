@@ -21,7 +21,7 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $personas = Persona::with(['user','city.country','skills','socials','projects.details'])->where('user_id', Auth::user()->id)->get();
+        $personas = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('user_id', Auth::user()->id)->get();
         return response()->json($personas);
     }
 
@@ -137,7 +137,7 @@ class PersonaController extends Controller
     public function getActivePersona($email)
     {
         try {
-            $persona = Persona::with(['user','city.country','skills','socials','projects.details'])->where('status', 1)->where('user_id', User::where('email', $email)->first()->id)->first();
+            $persona = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('status', 1)->where('user_id', User::where('email', $email)->first()->id)->first();
             return response()->json($persona);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
