@@ -8,6 +8,7 @@ use App\Models\Detail;
 use App\Models\Persona;
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\SkillType;
 use App\Models\Social;
 use App\Models\User;
 use Carbon\Carbon;
@@ -45,6 +46,26 @@ class DatabaseSeeder extends Seeder
         $city2 = City::create([
             'name' => 'Prague',
             'country_id' => $country2->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $backEnd = SkillType::create([
+            'name' => 'BackEnd',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $frontEnd = SkillType::create([
+            'name' => 'FrontEnd',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $design = SkillType::create([
+            'name' => 'Design',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        $other = SkillType::create([
+            'name' => 'Other',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -127,6 +148,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'PHP',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -134,6 +156,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'JAVA',
             'level' => 90,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -141,6 +164,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'SQL',
             'level' => 90,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -148,6 +172,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Laravel',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -155,6 +180,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Livewire',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -162,6 +188,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'SpringBoot',
             'level' => 30,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -169,6 +196,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'HTML',
             'level' => 90,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -176,6 +204,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'CSS',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -183,6 +212,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Javascript',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -190,6 +220,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'AlpineJS',
             'level' => 50,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -197,6 +228,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Bootstrap',
             'level' => 100,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -204,6 +236,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Jquery',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -211,6 +244,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'VueJS',
             'level' => 50,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -218,6 +252,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Figma',
             'level' => 30,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -225,6 +260,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Powerdesigner',
             'level' => 80,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -232,6 +268,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'GIMP',
             'level' => 50,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -239,6 +276,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Linux',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -246,6 +284,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'Apache',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -253,6 +292,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona1->id,
             'name' => 'MySQL',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -575,6 +615,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'PHP',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -582,6 +623,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'JAVA',
             'level' => 90,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -589,6 +631,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'SQL',
             'level' => 90,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -596,6 +639,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Laravel',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -603,6 +647,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Livewire',
             'level' => 98,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -610,6 +655,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'SpringBoot',
             'level' => 30,
+            'skill_type_id' => $backEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -617,6 +663,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'HTML',
             'level' => 90,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -624,6 +671,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'CSS',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -631,6 +679,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Javascript',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -638,6 +687,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'AlpineJS',
             'level' => 50,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -645,6 +695,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Bootstrap',
             'level' => 100,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -652,6 +703,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Jquery',
             'level' => 80,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -659,6 +711,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'VueJS',
             'level' => 50,
+            'skill_type_id' => $frontEnd->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -666,6 +719,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Figma',
             'level' => 30,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -673,6 +727,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Powerdesigner',
             'level' => 80,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -680,6 +735,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'GIMP',
             'level' => 50,
+            'skill_type_id' => $design->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -687,6 +743,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Linux',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -694,6 +751,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'Apache',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -701,6 +759,7 @@ class DatabaseSeeder extends Seeder
             'persona_id' => $persona2->id,
             'name' => 'MySQL',
             'level' => 80,
+            'skill_type_id' => $other->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);

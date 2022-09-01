@@ -36,6 +36,20 @@
                                             {{ error.$message }}
                                         </span>
                                     </div>
+                                    <div class="form-group">
+                                                <label>Type</label><br>
+                                                <select v-model="skill.skill_type_id" class="text-bg-dark border border-secondary" :class="
+                                                v$.skill.skill_type_id.$error === true ? 'border border-danger' : ''">
+                                                    <option v-for="skillType in skillTypes" :value="skillType.id" :key="skillType.id">{{
+                                                            skillType.name
+                                                    }}
+                                                    </option>
+                                                </select><br>
+                                                <span class="text-danger small" v-for="error of v$.skill.skill_type_id.$errors"
+                                                    :key="error.$uid">
+                                                    {{ error.$message }}
+                                                </span>
+                                            </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <button type="submit" @click="submit" class="btn btn-success btn-sm col-12 text-white">Save</button>
@@ -63,7 +77,9 @@ export default {
             skill: {
                 name: "",
                 level: "",
+                skill_type_id: "",
             },
+            skillTypes: []
         }
     },
     validations() {
@@ -71,11 +87,13 @@ export default {
             skill: {
                 name: { required, maxLengthValue: maxLength(16), alpha, $autoDirty: true },
                 level: { required, minValue: minValue(1), maxValue: maxLength(100), numeric, $autoDirty: true }, //social whatsapp
+                skill_type_id: { required, numeric, $autoDirty:true }, //social whatsapp
             }
         }
     },
     mounted() {
         this.showSkill()
+        this.getSkillTypes()
     },
     methods: {
         submit() {
@@ -114,9 +132,10 @@ export default {
         async showSkill() {
             await this.axios.get(`/api/skill/${this.$route.params.skillID}`)
                 .then(response => {
-                    const { name, level, persona_id } = response.data
+                    const { name, level, skill_type_id } = response.data
                     this.skill.name = name,
-                        this.skill.level = level
+                    this.skill.level = level
+                    this.skill.skill_type_id = skill_type_id
                 })
                 .catch(error => {
                     console.log(error)
@@ -131,6 +150,15 @@ export default {
                 })
                 .catch(error => {
                     console.log(error)
+                })
+        },
+        async getSkillTypes() {
+            await this.axios.get('/api/skill/get/types')
+                .then(response => {
+                    this.skillTypes = response.data
+                })
+                .catch(error => {
+                    this.skillTypes = []
                 })
         },
     }

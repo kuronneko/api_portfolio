@@ -33,6 +33,8 @@ Route::middleware('auth:api')->group( function(){
     Route::resource('city', \App\Http\Controllers\CityController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::resource('social', \App\Http\Controllers\SocialController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
     Route::resource('skill', \App\Http\Controllers\SkillController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
+    Route::get('skill/get/types', [App\Http\Controllers\SkillController::class, 'getSkillTypes'])->name('skill.types');
+
     Route::resource('detail', \App\Http\Controllers\DetailController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
 
 });

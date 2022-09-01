@@ -19,6 +19,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Level</th>
+                                        <th>Type</th>
                                         <th>Options</th>
                                         <th>Last Updated</th>
                                     </tr>
@@ -28,6 +29,7 @@
                                         <td>{{ skill.id }}</td>
                                         <td>{{ skill.name }}</td>
                                         <td>{{ skill.level }}</td>
+                                        <td>{{ skill.type.name }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <router-link

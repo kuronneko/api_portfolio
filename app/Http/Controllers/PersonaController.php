@@ -110,7 +110,7 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function skills(Persona $persona){
-        $skills = Skill::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+        $skills = Skill::with(['persona','type'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         return response()->json($skills);
     }
 

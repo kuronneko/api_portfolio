@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
+use App\Models\SkillType;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -17,6 +18,10 @@ class SkillController extends Controller
         //
     }
 
+    public function getSkillTypes(){
+        $types = SkillType::all();
+        return response()->json($types);
+    }
     /**
      * Show the form for creating a new resource.
      *
