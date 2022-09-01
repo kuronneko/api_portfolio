@@ -118,14 +118,14 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona1->id,
             'name' => 'Twitter',
-            'content' => 'https://twitter.com/kuronnekos',
+            'content' => 'https://github.com/kuronneko',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
             'persona_id' => $persona1->id,
             'name' => 'Instagram',
-            'content' => 'https://www.instagram.com/cbpwxyz',
+            'content' => 'https://github.com/kuronneko',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -585,14 +585,14 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona2->id,
             'name' => 'Twitter',
-            'content' => 'https://twitter.com/kuronnekos',
+            'content' => 'https://github.com/kuronneko',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
             'persona_id' => $persona2->id,
             'name' => 'Instagram',
-            'content' => 'https://www.instagram.com/cbpwxyz',
+            'content' => 'https://github.com/kuronneko',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
