@@ -771,9 +771,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Cbpw allows you to create an album and upload images.
             Manage your images with an amazing full one page menu, developed from scratch with Laravel and Livewire technology.',
             'status' => 1,
-            'demo' => 'https://sexygatitas.cl/',
-            'source' => '#',
-            'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
+            'demo' => 'https://cyberpunkwaifus.xyz/',
+            'source' => 'https://github.com/kuronneko/cbpw2.22l',
+            'image' => 'https://kuronneko.github.io/assets/img/portfoliocbpw.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
