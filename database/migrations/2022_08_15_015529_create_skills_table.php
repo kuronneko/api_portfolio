@@ -19,8 +19,8 @@ class CreateSkillsTable extends Migration
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->string('name');
             $table->integer('level');
-            $table->unsignedBigInteger('skill_type_id');
-            $table->foreign('skill_type_id')->references('id')->on('skill_types');
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('types');
             $table->timestamps();
         });
     }

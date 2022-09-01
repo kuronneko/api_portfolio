@@ -7,7 +7,7 @@
                         <router-link :to='{ name: "createPersona" }' class="btn btn-sm btn-success text-white">New
                             Persona
                         </router-link>
-                        <button class="btn btn-sm btn-success" @click="apiFetch"><font-awesome-icon icon="fa-solid fa-link" /></button>
+                        <button class="btn btn-sm btn-dark" @click="apiFetch"><font-awesome-icon icon="fa-solid fa-link" /></button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -183,8 +183,9 @@ export default {
                 confirmButtonColor: '#198754',
                 width: 400,
                 background: '#212529',
-                icon: 'success',
-                title: 'Consumes your profile using: ' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+'',
+                icon: 'info',
+                text: '' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+ '',
+                title: 'Consumes your profile using: '
             });
             }
         },

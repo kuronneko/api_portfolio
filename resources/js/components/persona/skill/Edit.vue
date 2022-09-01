@@ -38,14 +38,14 @@
                                     </div>
                                     <div class="form-group">
                                                 <label>Type</label><br>
-                                                <select v-model="skill.skill_type_id" class="text-bg-dark border border-secondary" :class="
-                                                v$.skill.skill_type_id.$error === true ? 'border border-danger' : ''">
+                                                <select v-model="skill.type_id" class="text-bg-dark border border-secondary" :class="
+                                                v$.skill.type_id.$error === true ? 'border border-danger' : ''">
                                                     <option v-for="skillType in skillTypes" :value="skillType.id" :key="skillType.id">{{
                                                             skillType.name
                                                     }}
                                                     </option>
                                                 </select><br>
-                                                <span class="text-danger small" v-for="error of v$.skill.skill_type_id.$errors"
+                                                <span class="text-danger small" v-for="error of v$.skill.type_id.$errors"
                                                     :key="error.$uid">
                                                     {{ error.$message }}
                                                 </span>
@@ -77,7 +77,7 @@ export default {
             skill: {
                 name: "",
                 level: "",
-                skill_type_id: "",
+                type_id: "",
             },
             skillTypes: []
         }
@@ -87,7 +87,7 @@ export default {
             skill: {
                 name: { required, maxLengthValue: maxLength(16), alpha, $autoDirty: true },
                 level: { required, minValue: minValue(1), maxValue: maxLength(100), numeric, $autoDirty: true }, //social whatsapp
-                skill_type_id: { required, numeric, $autoDirty:true }, //social whatsapp
+                type_id: { required, numeric, $autoDirty:true }, //social whatsapp
             }
         }
     },
@@ -132,10 +132,10 @@ export default {
         async showSkill() {
             await this.axios.get(`/api/skill/${this.$route.params.skillID}`)
                 .then(response => {
-                    const { name, level, skill_type_id } = response.data
+                    const { name, level, type_id } = response.data
                     this.skill.name = name,
                     this.skill.level = level
-                    this.skill.skill_type_id = skill_type_id
+                    this.skill.type_id = type_id
                 })
                 .catch(error => {
                     console.log(error)
