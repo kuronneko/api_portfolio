@@ -4,8 +4,8 @@
             <div class="col-md-4">
                 <div class="card bg-dark text-white border border-secondary">
                     <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
-                        <h4>Create new Skill</h4>
-                        <router-link :to='{ name: "skillPersona", params: { personaID: this.$route.params.personaID } }' class="btn btn-success btn-sm text-white">Back</router-link>
+                        <h6 class="fw-bolder">Create New Skill</h6>
+                        <router-link :to='{ name: "skillPersona", params: { personaID: this.$route.params.personaID } }' class="btn btn-dark btn-sm text-white"><font-awesome-icon icon="fa-solid fa-left-long" /></router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="">
@@ -84,7 +84,7 @@ export default {
         return {
             skill: {
                 name: { required, maxLengthValue: maxLength(16), alpha, $autoDirty: true },
-                level: { required, minValue: minValue(1), maxValue: maxLength(100), numeric, $autoDirty:true }, //social whatsapp
+                level: { required, minValue: minValue(1), maxValue: maxLength(100), numeric, $autoDirty: true }, //social whatsapp
                 type_id: { required, numeric, $autoDirty:true }, //social whatsapp
             }
         }

@@ -7,11 +7,12 @@
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         <router-link
                             :to='{ name: "createProjectDetail", params: { projectID: this.$route.params.projectID, personaID: this.$route.params.personaID } }'
-                            class="btn btn-sm btn-success text-white">New Detail
+                            class="btn btn-sm btn-dark text-white"><font-awesome-icon icon="fa-sharp fa-solid fa-plus" />
                         </router-link>
+                        <h6 class="fw-bolder text-white">Project Details Gestor</h6>
                         <router-link
                             :to='{ name: "projectPersona", params: { personaID: this.$route.params.personaID } }'
-                            class="btn btn-success btn-sm text-white">Back</router-link>
+                            class="btn btn-dark btn-sm text-white"><font-awesome-icon icon="fa-solid fa-left-long" /></router-link>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

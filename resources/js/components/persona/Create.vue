@@ -5,8 +5,8 @@
                 <div class="card bg-dark text-white border border-secondary">
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
-                        <h4>Create new Persona</h4>
-                        <router-link to="/home" class="btn btn-success btn-sm text-white">Back</router-link>
+                        <h6 class="fw-bolder">Create New Persona</h6>
+                        <router-link to="/home" class="btn btn-dark btn-sm text-white"><font-awesome-icon icon="fa-solid fa-left-long" /></router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="">
@@ -173,7 +173,7 @@ export default {
             persona: {
                 //name: { required:helpers.withMessage("Name is required", required), $autoDirty:true, maxLengthValue: maxLength(16), alpha },
                 name: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), $autoDirty: true },
-                lastname: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), autoDirty:true },
+                lastname: { required, alpha2:helpers.withMessage("Invalid Format", alpha2), maxLengthValue: maxLength(16), $autoDirty: true },
                 title: { required, $autoDirty:true, maxLengthValue: maxLength(26) },
                 description: { required, $autoDirty:true },
                 about: { required, $autoDirty:true },

@@ -5,9 +5,9 @@
                 <div class="card bg-dark text-white border border-secondary">
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
-                        <h4>Edit Project</h4>
+                        <h6 class="fw-bolder">Edit Project</h6>
                         <router-link :to='{ name: "projectPersona", params: { personaID: this.$route.params.personaID } }'
-                            class="btn btn-success btn-sm text-white">Back</router-link>
+                            class="btn btn-dark btn-sm text-white"><font-awesome-icon icon="fa-solid fa-left-long" /></router-link>
                     </div>
                     <div class="card-body">
                         <form @submit.prevent="">
@@ -110,7 +110,7 @@ export default {
         validations() {
         return {
             project: {
-                name: { required, maxLengthValue: maxLength(16), alphaNum, $autoDirty: true },
+                name: { required, maxLengthValue: maxLength(36), alphaNum, $autoDirty: true },
                 title: { required, maxLengthValue: maxLength(36), $autoDirty: true },
                 description: { required, maxLengthValue: maxLength(800), $autoDirty: true },
                 demo: { required, maxLengthValue: maxLength(255), $autoDirty: true },
