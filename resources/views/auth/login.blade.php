@@ -5,8 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-dark text-white border border-secondary">
-                <div class="card-header border border-secondary border-top-0 border-start-0 border-end-0">{{ __('Login') }}</div>
-
+                <div class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
+                    {{ __('Login') }}
+                    <button id="infoBtn" class="btn btn-sm btn-dark"><i class="fa-solid fa-info"></i></button>
+                </div>
                 <div class="card-body">
                     @if (Auth::check())
                         <div class="alert alert-success font-weight-bolder" role="alert">
@@ -79,4 +81,23 @@
         </div>
     </div>
 </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    infoBtn.onclick = function(){
+        Swal.fire({
+                position: 'center',
+                color: '#fff',
+                confirmButtonColor: '#198754',
+                width: 400,
+                background: '#212529',
+                icon: 'info',
+                text: 'admin@gmail.com;12345678',
+                title: 'Demo User: '
+        });
+    }
+</script>
+
 @endsection
+
+
