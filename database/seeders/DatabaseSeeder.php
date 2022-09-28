@@ -96,9 +96,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
-            'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
-            I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
-            Now last replacing this last one with VueJS.
+            'about' => 'Full-Stack Developer with strong skills in PHP, JAVA and JAVASCRIPT.
+            I have a lot of experience writing code in raw language code, building Apps using object-oriented design patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire. Now last, replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 1,
@@ -570,9 +569,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
-            'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
-            I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
-            Now last replacing this last one with VueJS.
+            'about' => 'Full-Stack Developer with strong skills in PHP, JAVA and JAVASCRIPT.
+            I have a lot of experience writing code in raw language code, building Apps using object-oriented design patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire. Now last, replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 0,
@@ -1064,9 +1062,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
-            'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
-            I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
-            Now last replacing this last one with VueJS.
+            'about' => 'Full-Stack Developer with strong skills in PHP, JAVA and JAVASCRIPT.
+            I have a lot of experience writing code in raw language code, building Apps using object-oriented design patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire. Now last, replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 1,
@@ -1538,9 +1535,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
-            'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
-            I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
-            Now last replacing this last one with VueJS.
+            'about' => 'Full-Stack Developer with strong skills in PHP, JAVA and JAVASCRIPT.
+            I have a lot of experience writing code in raw language code, building Apps using object-oriented design patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire. Now last, replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 0,
