@@ -91,13 +91,14 @@ class DatabaseSeeder extends Seeder
         $persona1 = Persona::create([
             'city_id' => $city->id,
             'user_id' => $user1->id,
-            'name' => 'Alfonso',
-            'lastname' => 'Castillo',
+            'name' => 'Camilo',
+            'lastname' => 'Okinawa',
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
             'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
             I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
+            Now last replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 1,
@@ -130,14 +131,14 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona1->id,
             'name' => 'Email',
-            'content' => 'aecastillodev@gmail.com',
+            'content' => 'example@gmail.com',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
             'persona_id' => $persona1->id,
             'name' => 'WhatsApp',
-            'content' => '56964599188',
+            'content' => '56911110000',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -348,7 +349,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
-            'demo' => 'https://sexygatitas.cl/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -386,7 +387,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
-            'demo' => 'https://javparadise.xyz/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -571,6 +572,7 @@ class DatabaseSeeder extends Seeder
             LAMP Stack Specialist.',
             'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
             I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
+            Now last replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 0,
@@ -610,7 +612,7 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona2->id,
             'name' => 'WhatsApp',
-            'content' => '56943497798',
+            'content' => '56911110000',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -821,7 +823,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
-            'demo' => 'https://sexygatitas.cl/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -859,7 +861,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
-            'demo' => 'https://javparadise.xyz/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1057,13 +1059,14 @@ class DatabaseSeeder extends Seeder
         $persona3 = Persona::create([
             'city_id' => $city->id,
             'user_id' => $user2->id,
-            'name' => 'Alfonso',
-            'lastname' => 'Castillo',
+            'name' => 'Camilo',
+            'lastname' => 'Okinawa',
             'title' => 'Full-Stack Developer',
             'description' => 'Designing, developing and deploying modern Web Apps.
             LAMP Stack Specialist.',
             'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
             I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
+            Now last replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 1,
@@ -1096,14 +1099,14 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona3->id,
             'name' => 'Email',
-            'content' => 'aecastillodev@gmail.com',
+            'content' => 'example@gmail.com',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         Social::create([
             'persona_id' => $persona3->id,
             'name' => 'WhatsApp',
-            'content' => '56964599188',
+            'content' => '56911110000',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -1314,7 +1317,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
-            'demo' => 'https://sexygatitas.cl/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1352,7 +1355,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
-            'demo' => 'https://javparadise.xyz/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1537,6 +1540,7 @@ class DatabaseSeeder extends Seeder
             LAMP Stack Specialist.',
             'about' => 'Full-Stack Developer with great skills in PHP, JAVA and JAVASCRIPT.
             I have a lot of experience writting code in raw language code, building Apps using object-oriented desing patterns as DAO, and DTO. I now specialize in developing modern Web Apps with the LAMP stack, using the PHP framework Laravel and his Full-Stack framework called Livewire.
+            Now last replacing this last one with VueJS.
             Also, I have some experience designing complex relational databases, having an advanced knowledge in SQL language.
             Linux skills, cloud services, LAMP Stack.',
             'status' => 0,
@@ -1576,7 +1580,7 @@ class DatabaseSeeder extends Seeder
         Social::create([
             'persona_id' => $persona4->id,
             'name' => 'WhatsApp',
-            'content' => '56943497798',
+            'content' => '56911110000',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -1787,7 +1791,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sexygatitas',
             'description' => 'Escort advertising service with a free/paid business model and SEO optimized.',
             'status' => 1,
-            'demo' => 'https://sexygatitas.cl/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliosg.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1825,7 +1829,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Javparadise',
             'description' => 'Jav-tube website. A nicely business model to earn money with Ads.',
             'status' => 1,
-            'demo' => 'https://javparadise.xyz/',
+            'demo' => '#',
             'source' => '#',
             'image' => 'https://kuronneko.github.io/assets/img/portfoliojv.png',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
