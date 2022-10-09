@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PassportAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -37,11 +38,14 @@ Route::middleware('auth:api')->group( function(){
 
     Route::resource('detail', \App\Http\Controllers\DetailController::class)->only(['index', 'store', 'update', 'show', 'destroy']);
 
+    Route::post('logout', [PassportAuthController::class, 'logout']);
 });
 //Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
 Route::get('persona/get/{email}', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
 //Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['show']);
 
 
+Route::post('register', [PassportAuthController::class, 'register']);
+Route::post('login', [PassportAuthController::class, 'login']);
 
 
