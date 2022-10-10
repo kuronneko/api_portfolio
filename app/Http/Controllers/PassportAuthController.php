@@ -40,7 +40,7 @@ class PassportAuthController extends Controller
             $token = auth()->user()->createToken('Token')->accessToken;
             return response()->json(['token' => $token], 200);
         }else{
-            return response()->json(['error' => 'Credenciales erroneas']);
+            return response()->json(['error' => 'These credentials do not match our records.']);
         }
     }
 
