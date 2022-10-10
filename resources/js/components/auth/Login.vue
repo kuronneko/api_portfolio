@@ -9,13 +9,13 @@
                         <button id="infoBtn" @click="info()" class="btn btn-sm btn-dark"><i class="fa-solid fa-info"></i></button>
                     </div>
                     <div class="card-body">
-                        <p class="text-danger" v-if="error">{{error}}</p>
                         <form @submit.prevent="login">
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" required
                                         autocomplete="email" autofocus v-model="form.email">
+                                        <span class="text-danger" v-if="error">{{error}}</span>
                                 </div>
                             </div>
 
@@ -68,6 +68,7 @@ export default {
 
                     } else {
                         this.error = response.data.error;
+                        this.form.password = '';
                     }
                 })
         },
