@@ -185,8 +185,15 @@ export default {
                 width: 400,
                 background: '#212529',
                 icon: 'info',
-                text: '' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+ '',
-                title: 'Consumes your profile using: '
+                title: 'Consumes your profile using: ',
+                html: `
+                <div align='left'>
+                    <span style="color:green">Persona JSON: </span>
+                    <p style="white-space: nowrap; text-overflow: ellipsis; ">${'' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+ ''}</p>
+                    <span style="color:green">Token: </span>
+                    <p style="white-space: nowrap; text-overflow: ellipsis; ">${localStorage.getItem('token')}</p>
+                </div>
+                `
             });
             }
         },
