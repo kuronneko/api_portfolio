@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="card bg-dark text-white border border-secondary">
