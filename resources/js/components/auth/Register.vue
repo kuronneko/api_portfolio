@@ -6,6 +6,7 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border border-secondary border-top-0 border-start-0 border-end-0">
                         Register
+                        <button id="infoBtn" @click="info()" class="btn btn-sm btn-dark"><i class="fa-solid fa-info"></i></button>
                     </div>
                     <div class="card-body">
                         <p class="text-danger text-center" v-if="error">{{error}}</p>
@@ -92,6 +93,23 @@ export default {
                         this.error = response.data.error;
                     }
                 })
+        },
+        info() {
+            this.$swal({
+                position: 'center',
+                color: '#fff',
+                confirmButtonColor: '#198754',
+                width: 400,
+                background: '#212529',
+                icon: 'info',
+                title: 'Rules: ',
+                html: `
+                <div align='left'>
+                    <span>Name: Min 3, Max 20 Characters</span>
+                    <span>Password: Min 8 Characters</span>
+                </div>
+                `
+            });
         },
     }
 }

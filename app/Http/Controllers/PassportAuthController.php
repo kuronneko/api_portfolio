@@ -14,9 +14,9 @@ class PassportAuthController extends Controller
 
         try {
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'min:3', 'max:20', 'regex:/^[a-zA-Z0-9]+$/'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'confirmed', Password::defaults()],
+                'password' => ['required', 'string', 'min:8', 'confirmed', Password::defaults()],
             ]);
             $user = User::create([
                 'name' => $request->name,
