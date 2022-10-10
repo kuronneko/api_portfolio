@@ -9,18 +9,19 @@
 
 # PortfolioGestor 9000
 ### Description: 
-PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.
+PortofolioGestor9000 is an API REST developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.
 
-The purpose of this project is to consume this content in a portfolio developed with raw languages and hosted in github pages.
+The purpose of this project is to consume this content (JSON Persona profile) in a portfolio developed with raw languages and hosted in github pages.
 
 ### Features:
 * Relational Database desing from Scratch
-* Laravel API
+* Laravel API REST using Laravel Passport
 * VueJS to asyncronous request
 * Bootstrap 5 for the UI
 * Forms Validate with Vuelidate
 * Pop-up Messages with SweetAlert2
 * Loader effect with VueLoader
+* SPA Design
 
 ### Technologies/Libraries:
 * Laravel 8, VueJS 3, PHP 7.4, Bootstrap 5, CSS, Javascript, Laravel-Passport, Vue-SweetAlert2, Vuelidate, Vue-Loader, Vue-Fontawesome, Vue-Router, Vue-Axios
@@ -33,12 +34,23 @@ The purpose of this project is to consume this content in a portfolio developed 
 * composer install
 * php artisan key:generate
 * php artisan migrate:refresh --seed
+* php artisan passport:install --force
 * npm install && npm run dev
-* login as admin@gmail.com:12345678
+* demo user: admin@gmail.com:12345678
 
-### Consume API
-* Consume single persona profile using: http://127.0.0.1:8000/api/persona/get/admin@gmail.com
+### Database Design:
+<p> <img src="https://raw.githubusercontent.com/kuronneko/kuronneko.github.io/master/assets/img/portfoliodb.png" width="450"> </p>
+
+### How to use:
+* Create an Account
+* Create New Persona [+]
+* Add New Skills to your Persona
+* Add New Socials to your Persona
+* Add New Project to your Persona
+* Add Details to your Project
+* Enable Persona Changing Status Switch
+* Click on the top right corner of the index table to get JSON URL and TOKEN info
+* Consumes the JSON everywhere you want
 
 ## License
-
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
