@@ -14,22 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
-Auth::routes([
+Route::get('/{pathMatch}', function() {
+    return view('welcome');
+})->where('pathMatch',".*");
+
+/* Auth::routes([
     'register' => true, // Registration Routes...
     'reset' => false, // Password Reset Routes...
     'verify' => false, // Email Verification Routes...
-  ]);
+  ]); */
 
-//protected group routes
+/* //protected group routes
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('{any}', function () { // {any}
         return view('home');
     })->where('any', '.*');
-});
+}); */
 
 /* Route::get('{any}', function () { //{any} permite el renderizado de vue app en cualquier url
     return view('home');

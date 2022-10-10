@@ -22,6 +22,8 @@ import App from './components/App.vue';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
+axios.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`; //get tokken for all request
+
 import * as VueRouter from 'vue-router';
 import { routes } from './routes';
 
@@ -29,6 +31,14 @@ const router = VueRouter.createRouter({
     history: VueRouter.createWebHistory(),
     routes,
   });
+router.beforeEach((to,from) =>{
+    if(to.meta.requiresAuth && !localStorage.getItem('token')){
+        return {name: 'login'}
+    }
+    if(to.meta.requiresAuth == false && localStorage.getItem('token')){
+        return { name: 'showPersonas'}
+    }
+});
 
 import VueProgressBar from "@aacassandra/vue3-progressbar";
 const vueProgressBarOptions = {
@@ -53,4 +63,4 @@ createApp(App)
 .use(VueProgressBar, vueProgressBarOptions)
 .use(VueSweetalert2)
 .component('font-awesome-icon', FontAwesomeIcon)
-.mount('#vapp');
+.mount('#app');

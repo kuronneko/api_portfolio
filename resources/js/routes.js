@@ -19,81 +19,159 @@ const DetailProject = ()=> import('./components/persona/project/detail/ShowAll.v
 const DetailProjectCreate = ()=> import('./components/persona/project/detail/Create.vue');
 const DetailProjectEdit = ()=> import('./components/persona/project/detail/Edit.vue');
 
+const Index = ()=> import('./components/Index.vue');
+const NotFound = ()=> import('./components/404.vue');
+const Login = ()=> import('./components/auth/Login.vue');
+const Register = ()=> import('./components/auth/Register.vue');
 
 export const routes = [
     {
+        name: 'index',
+        path: '/',
+        component:Index,
+        meta:{
+            requiresAuth:false
+        }
+    },
+    {
+        name: 'notFound',
+        path: '/:pathMatch(.*)*',
+        component:NotFound,
+    },
+    {
+        name: 'login',
+        path: '/auth/login',
+        component:Login,
+        meta:{
+            requiresAuth:false
+        }
+    },
+    {
+        name: 'register',
+        path: '/auth/register',
+        component:Register,
+        meta:{
+            requiresAuth:false
+        }
+    },
+    {
         name: 'showPersonas',
         path: '/home',
-        component:ShowAll
+        component:ShowAll,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'createPersona',
         path: '/home/create',
-        component:Create
+        component:Create,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'editPersona',
         path: '/home/edit/:personaID',
-        component:Edit
+        component:Edit,
+        meta:{
+            requiresAuth:true
+        }
     },
        {
         name: 'projectPersona',
         path: '/home/projects/:personaID',
-        component:ProjectPersona
+        component:ProjectPersona,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'createPersonaProject',
         path: '/home/project/create/:personaID',
-        component:ProjectPersonaCreate
+        component:ProjectPersonaCreate,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'editPersonaProject',
         path: '/home/project/edit/:projectID/:personaID',
-        component:ProjectPersonaEdit
+        component:ProjectPersonaEdit,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'socialPersona',
         path: '/home/socials/:personaID',
-        component:SocialPersona
+        component:SocialPersona,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'createPersonaSocial',
         path: '/home/social/create/:personaID',
-        component:SocialPersonaCreate
+        component:SocialPersonaCreate,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'editPersonaSocial',
         path: '/home/social/edit/:socialID/:personaID',
-        component:SocialPersonaEdit
+        component:SocialPersonaEdit,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'skillPersona',
         path: '/home/skills/:personaID',
-        component:SkillPersona
+        component:SkillPersona,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'createPersonaSkill',
         path: '/home/skill/create/:personaID',
-        component:SkillPersonaCreate
+        component:SkillPersonaCreate,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'editPersonaSkill',
         path: '/home/skill/edit/:skillID/:personaID',
-        component:SkillPersonaEdit
+        component:SkillPersonaEdit,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'detailProject',
         path: '/home/project/details/:projectID/:personaID',
-        component:DetailProject
+        component:DetailProject,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'createProjectDetail',
         path: '/home/project/detail/create/:projectID/:personaID',
-        component:DetailProjectCreate
+        component:DetailProjectCreate,
+        meta:{
+            requiresAuth:true
+        }
     },
     {
         name: 'editProjectDetail',
         path: '/home/project/detail/edit/:detailID/:projectID/:personaID',
-        component:DetailProjectEdit
+        component:DetailProjectEdit,
+        meta:{
+            requiresAuth:true
+        }
     },
 ];

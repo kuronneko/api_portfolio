@@ -1,4 +1,5 @@
 <template>
+    <navbar></navbar>
     <main>
         <div>
             <router-view></router-view>
@@ -8,7 +9,11 @@
 </template>
 
 <script>
+    import navbar from '../components/Nav.vue';
   export default {
+    components: {
+        navbar,
+    },
     mounted() {
       //  [App.vue specific] When App.vue is finish loading finish the progress bar
       this.$Progress.finish();
