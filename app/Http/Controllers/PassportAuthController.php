@@ -11,21 +11,24 @@ use Illuminate\Validation\Rules\Password;
 class PassportAuthController extends Controller
 {
     public function register(Request $request){
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Password::defaults()],
+            ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            $token = $user->createToken('Token')->accessToken;
+            return response()->json(['token' => $token], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th->getMessage()]);
+        }
 
-        $token = $user->createToken('Token')->accessToken;
-
-        return response()->json(['token' => $token], 200);
     }
 
     public function login(Request $request){

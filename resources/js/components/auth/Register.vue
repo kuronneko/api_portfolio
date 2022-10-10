@@ -8,7 +8,7 @@
                         Register
                     </div>
                     <div class="card-body">
-                        <p class="text-danger" v-if="error">{{error}}</p>
+                        <p class="text-danger text-center" v-if="error">{{error}}</p>
 
                         <form @submit.prevent="register">
                             <div class="row mb-3">
