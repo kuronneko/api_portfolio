@@ -22,7 +22,8 @@ import App from './components/App.vue';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
-axios.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`; //get tokken for all request
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`; //get tokken for all request
+//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 import * as VueRouter from 'vue-router';
 import { routes } from './routes';
