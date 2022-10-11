@@ -25,7 +25,7 @@
                         <h1>PortfolioGestor9000</h1>
                         <br>
                         <h4>Description:</h4>
-                        <p>PortofolioGestor9000 is an API developed with Laravel and VueJS technologies. The API was
+                        <p>PortfolioGestor9000 is an API REST developed with Laravel and VueJS technologies. The API was
                             developed with
                             Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for
                             the user
@@ -39,7 +39,7 @@
                         <h4>Features:</h4>
                         <ul>
                             <li>Relational Database desing from Scratch</li>
-                            <li>Laravel API using Laravel Passport</li>
+                            <li>Laravel API REST using Laravel Passport</li>
                             <li>VueJS to asyncronous request</li>
                             <li>Bootstrap 5 for the UI</li>
                             <li>Forms Validate with Vuelidate</li>
