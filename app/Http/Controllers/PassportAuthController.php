@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Str;
 
 class PassportAuthController extends Controller
 {
@@ -22,6 +23,7 @@ class PassportAuthController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'uuid' => Str::uuid(),
             ]);
             $token = $user->createToken('Token')->accessToken;
             return response()->json(['token' => $token], 200);

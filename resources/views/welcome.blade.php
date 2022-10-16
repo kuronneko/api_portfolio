@@ -25,7 +25,7 @@
                 background-image: url(../img/toja.png);
                 background-repeat: no-repeat;
                 background-position: right -300px bottom -300px;
-                opacity: 0.5;
+                opacity: 0.4;
                 top: 0;
                 left: 0;
                 bottom: 0;

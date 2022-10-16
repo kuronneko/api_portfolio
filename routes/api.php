@@ -41,7 +41,7 @@ Route::middleware('auth:api')->group( function(){
     Route::post('logout', [PassportAuthController::class, 'logout']);
 });
 //Route::get('persona/status/active', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
-Route::get('persona/get/{email}', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
+Route::get('persona/get/{uuid}', [App\Http\Controllers\PersonaController::class, 'getActivePersona'])->name('persona.get_active_persona');
 //Route::resource('persona', \App\Http\Controllers\PersonaController::class)->only(['show']);
 
 
