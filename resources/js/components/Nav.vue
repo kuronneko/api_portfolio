@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <img src="/img/logo.png" style="height:30px; margin-right:10px;" alt="">
-            <router-link :to='{ name: "index" }' class="navbar-brand">PortofolioGestor9000</router-link>
+            <router-link :to='{ name: "index" }' class="navbar-brand">PortfolioGestor9000</router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">

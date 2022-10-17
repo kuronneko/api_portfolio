@@ -21,8 +21,12 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $personas = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('user_id', Auth::user()->id)->get();
-        return response()->json($personas);
+        try {
+            $personas = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('user_id', Auth::user()->id)->get();
+            return response()->json($personas);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -43,29 +47,33 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-             '*' => 'required'
-        ]);
+        try {
+            $request->validate([
+                '*' => 'required'
+           ]);
 
-        $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
-        Social::create([
-            'name' => 'GitHub',
-            'content' => $request->github,
-            'persona_id' => $persona->id,
-        ]);
-        Social::create([
-            'name' => 'Email',
-            'content' => $request->email,
-            'persona_id' => $persona->id,
-        ]);
-        Social::create([
-            'name' => 'WhatsApp',
-            'content' => $request->whatsapp,
-            'persona_id' => $persona->id,
-        ]);
-        return response()->json([
-            'persona' => $persona,
-        ]);
+           $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
+           Social::create([
+               'name' => 'GitHub',
+               'content' => $request->github,
+               'persona_id' => $persona->id,
+           ]);
+           Social::create([
+               'name' => 'Email',
+               'content' => $request->email,
+               'persona_id' => $persona->id,
+           ]);
+           Social::create([
+               'name' => 'WhatsApp',
+               'content' => $request->whatsapp,
+               'persona_id' => $persona->id,
+           ]);
+           return response()->json([
+               'persona' => $persona,
+           ]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -76,7 +84,11 @@ class PersonaController extends Controller
      */
     public function show(Persona $persona)
     {
-        return response()->json($persona);
+        try {
+            return response()->json($persona);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
         /**
@@ -88,8 +100,12 @@ class PersonaController extends Controller
     public function projects(Persona $persona){
         //projects full filter
         //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        $projects = Project::with(['persona','details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        return response()->json($projects);
+        try {
+            $projects = Project::with(['persona','details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+            return response()->json($projects);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
             /**
@@ -99,8 +115,12 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function socials(Persona $persona){
-        $socials = Social::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        return response()->json($socials);
+        try {
+            $socials = Social::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+            return response()->json($socials);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
                 /**
@@ -110,8 +130,12 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function skills(Persona $persona){
-        $skills = Skill::with(['persona','type'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
-        return response()->json($skills);
+        try {
+            $skills = Skill::with(['persona','type'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+            return response()->json($skills);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
      /**
@@ -134,15 +158,18 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getActivePersona($email)
+    public function getActivePersona($uuid)
     {
         try {
-            $persona = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('status', 1)->where('user_id', User::where('email', $email)->first()->id)->first();
-            return response()->json($persona);
+            $persona = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('status', 1)->where('user_id', User::where('uuid', $uuid)->first()->id)->first();
+            if($persona){
+                return response()->json($persona);
+            }else{
+                return response()->json(['error' => 'You need to create/activate a persona profile']);
+            }
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
         }
-
     }
 
     /**
@@ -165,14 +192,18 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
-        $request->validate([
-            '*' => 'required'
-        ]);
+        try {
+            $request->validate([
+                '*' => 'required'
+            ]);
 
-        $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
-        return response()->json([
-            'persona' => $persona,
-        ]);
+            $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
+            return response()->json([
+                'persona' => $persona,
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
      /**
@@ -184,21 +215,23 @@ class PersonaController extends Controller
      */
     public function status(Persona $persona)
     {
-        if($persona->status == 1){
-            $persona->status = 0;
-        }else{
-            $persona->status = 1;
-            foreach(Persona::where('user_id', Auth::user()->id)->get() as $personas){
-                if($personas != $persona){
-                    $personas->status = 0;
-                    $personas->save();
+        try {
+            if($persona->status == 1){
+                $persona->status = 0;
+            }else{
+                $persona->status = 1;
+                foreach(Persona::where('user_id', Auth::user()->id)->get() as $personas){
+                    if($personas != $persona){
+                        $personas->status = 0;
+                        $personas->save();
+                    }
                 }
             }
+            $persona->save();
+            return response()->json(['persona' => $persona]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
         }
-        $persona->save();
-        return response()->json([
-            'persona' => $persona,
-        ]);
     }
 
 
@@ -210,14 +243,18 @@ class PersonaController extends Controller
      */
     public function destroy(Persona $persona)
     {
-        Detail::whereIn('project_id', Project::where('persona_id', $persona->id)->get()->pluck('id'))->delete();
-        Project::where('persona_id', $persona->id)->delete();
-        Skill::where('persona_id', $persona->id)->delete();
-        Social::where('persona_id', $persona->id)->delete();
-        $persona->delete();
-        return response()->json([
-            'mensaje' => 'Persona deleted',
-        ]);
+        try {
+            Detail::whereIn('project_id', Project::where('persona_id', $persona->id)->get()->pluck('id'))->delete();
+            Project::where('persona_id', $persona->id)->delete();
+            Skill::where('persona_id', $persona->id)->delete();
+            Social::where('persona_id', $persona->id)->delete();
+            $persona->delete();
+            return response()->json([
+                'mensaje' => 'Persona deleted',
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
 }

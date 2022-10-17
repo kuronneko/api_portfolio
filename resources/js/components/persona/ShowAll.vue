@@ -96,7 +96,7 @@ export default {
     name: "personas",
     data() {
         return {
-            personas: []
+            personas: [],
         }
     },
     mounted() {
@@ -166,17 +166,13 @@ export default {
             }
         },
         apiFetch(){
-            if(this.personas.length > 0){
+            if(this.personas.find(o => o.status === 1)){
                 let [firstDetails] = this.personas;// es6 syntax of destructing the array
-                let userEmail = firstDetails.user.email; //assing new id to params
+                let userUuid = firstDetails.user.uuid; //assing new id to params
                 let hostname = location.hostname;
                 let protocol = 'https';
-                if(hostname == '127.0.0.1'){
-                    hostname = hostname+':8000';
-                    protocol = 'http';
-                }
                 if(navigator.clipboard) {
-                    navigator.clipboard.writeText(protocol+'://'+hostname+'/api/persona/get/'+userEmail);
+                    navigator.clipboard.writeText(protocol+'://'+hostname+'/api/persona/get/'+userUuid);
                 }
                 this.$swal({
                 position: 'center',
@@ -189,11 +185,21 @@ export default {
                 html: `
                 <div align='left'>
                     <span style="color:green">Persona JSON: </span>
-                    <p style="white-space: nowrap; text-overflow: ellipsis; ">${'' +protocol+'://'+hostname+'/api/persona/get/'+userEmail+ ''}</p>
+                    <p style="white-space: nowrap; text-overflow: ellipsis; ">${'' +protocol+'://'+hostname+'/api/persona/get/'+userUuid+ ''}</p>
                     <span style="color:green">Token: </span>
                     <p style="white-space: nowrap; text-overflow: ellipsis; ">${localStorage.getItem('token')}</p>
                 </div>
                 `
+            });
+            }else{
+                this.$swal({
+                position: 'center',
+                color: '#fff',
+                confirmButtonColor: '#198754',
+                width: 400,
+                background: '#212529',
+                icon: 'info',
+                title: 'You need to create/activate a persona profile',
             });
             }
         },
