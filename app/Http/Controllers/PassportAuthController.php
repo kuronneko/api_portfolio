@@ -42,6 +42,11 @@ class PassportAuthController extends Controller
 
         //$user = User::find(Auth::user()->id);
         if(auth()->attempt($credentials)){
+            if(auth()->user()->uuid == ''){ // if user doesnt have uuid ((old builds))
+                $user = User::findOrFail(auth()->user()->id);
+                $user->uuid = Str::uuid();
+                $user->save();
+            }
             $token = auth()->user()->createToken('Token')->accessToken;
             return response()->json(['token' => $token], 200);
         }else{
