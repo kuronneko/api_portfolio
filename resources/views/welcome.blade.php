@@ -19,13 +19,12 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <style>
-        @media only screen and (min-width: 600px) {
             body::after {
                 content: "";
                 background-image: url(../img/toja.png);
                 background-repeat: no-repeat;
-                background-position: right -300px bottom -300px;
-                opacity: 0.4;
+                background-position: center bottom -150px;
+                opacity: 0.3;
                 top: 0;
                 left: 0;
                 bottom: 0;
@@ -33,7 +32,6 @@
                 position: fixed;
                 z-index: -1;
             }
-        }
     </style>
 </head>
 
