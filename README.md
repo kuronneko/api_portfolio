@@ -9,7 +9,7 @@
 
 # PortfolioGestor 9000
 ### Description: 
-Laravel API REST, capable to generate and modify a JSON with information about a persona profile, you can use it as a web service and consume the JSON in your static portfolio website to make dynamic it.
+Laravel API REST, capable to generate and modify a JSON with information about a persona profile, you can use it as a web service (through the UI) and consume the JSON in your static portfolio website to make dynamic it.
 
 The purpose of this project is to consume this content (JSON Persona profile) in a portfolio developed with raw languages and hosted in github pages.
 
