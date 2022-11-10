@@ -11,7 +11,7 @@
 ### Description: 
 Laravel API REST, capable to generate and modify a JSON with information about a persona profile, you can use it as a web service (through the UI) and consume the JSON in your static portfolio website to make dynamic it.
 
-The purpose of this project is to consume and manage the information of a static portfolio website developed with raw languages and hosted in github pages.
+The purpose of this project is manage the information of a static portfolio website developed with raw languages and hosted in github pages.
 
 ### Features:
 * Relational Database desing from Scratch
