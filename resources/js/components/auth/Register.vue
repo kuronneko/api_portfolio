@@ -16,7 +16,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" required
+                                    <input id="name" type="text" class="form-control text-bg-dark border border-secondary" name="name" required
                                         autocomplete="name" autofocus v-model="form.name">
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" required
+                                    <input id="email" type="email" class="form-control text-bg-dark border border-secondary" name="email" required
                                         autocomplete="email" v-model="form.email">
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required
+                                    <input id="password" type="password" class="form-control text-bg-dark border border-secondary" name="password" required
                                         autocomplete="new-password" v-model="form.password">
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-end">Confirm
                                     Password</label>
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                    <input id="password-confirm" type="password" class="form-control text-bg-dark border border-secondary"
                                         name="password_confirmation" required autocomplete="new-password" v-model="form.password_confirmation">
                                 </div>
                             </div>

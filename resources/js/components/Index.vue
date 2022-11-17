@@ -4,20 +4,20 @@
             <div class="col-lg-12">
                 <div class="font-monospace text-white">
                     <div class="text-center text-white">
-                        <p><a href="https://laravel.com" target="_blank"><img class="img-fluid"
+                        <p><img class="img-fluid"
                                     src="https://raw.githubusercontent.com/kuronneko/kuronneko.github.io/master/assets/img/laravel-vue.png"
-                                    width="450"></a></p>
+                                    width="450"></p>
                         <p>
-                            <a href="https://travis-ci.org/laravel/framework"><img
-                                    src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-                            <a href="https://packagist.org/packages/laravel/framework"><img
+                           <img
+                                    src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
+                            <img
                                     src="https://img.shields.io/packagist/dt/laravel/framework"
-                                    alt="Total Downloads"></a>
-                            <a href="https://packagist.org/packages/laravel/framework"><img
+                                    alt="Total Downloads">
+                           <img
                                     src="https://img.shields.io/packagist/v/laravel/framework"
-                                    alt="Latest Stable Version"></a>
-                            <a href="https://packagist.org/packages/laravel/framework"><img
-                                    src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+                                    alt="Latest Stable Version">
+                            <img
+                                    src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
                         </p>
                     </div>
                     <div class="text-start">
@@ -25,14 +25,8 @@
                         <h1>PortfolioGestor9000</h1>
                         <br>
                         <h4>Description:</h4>
-                        <p>PortfolioGestor9000 is an API REST developed with Laravel and VueJS technologies. The API was
-                            developed with
-                            Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for
-                            the user
-                            interface and managing the database content via the API.</p>
-                        <p>The purpose of this project is to consume this content (JSON Persona profile) in a portfolio
-                            developed with raw languages and
-                            hosted in github pages.</p>
+                        <p>Laravel API REST, capable to generate and modify a JSON with information about a persona profile, you can use it as a web service (through the UI) and consume the JSON in your static portfolio website to make dynamic it.</p>
+                        <p>The purpose of this project is manage the information of a static portfolio website developed with raw languages and hosted in github pages.</p>
                     </div>
 
                     <div class="text-start">

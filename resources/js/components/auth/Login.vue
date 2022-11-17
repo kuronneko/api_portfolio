@@ -13,7 +13,7 @@
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email</label>
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" required
+                                    <input id="email" type="email" class="form-control text-bg-dark border border-secondary" name="email" required
                                         autocomplete="email" autofocus v-model="form.email">
                                         <span class="text-danger" v-if="error">{{error}}</span>
                                 </div>
@@ -22,7 +22,7 @@
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required
+                                    <input id="password" type="password" class="form-control text-bg-dark border border-secondary" name="password" required
                                         autocomplete="current-password" v-model="form.password">
                                 </div>
                             </div>
