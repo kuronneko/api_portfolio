@@ -9,9 +9,9 @@
 
 # PortfolioGestor 9000
 ### Description: 
-PortfolioGestor9000 is an API REST developed with Laravel and VueJS technologies. The API was developed with Laravel using a relational database design from scratch, and VueJS+Boostrap5 was used for the user interface and managing the database content via the API.
+Laravel API REST, capable to generate and modify a JSON with information about a persona profile, you can use it as a web service (through the UI) and consume the JSON in your static portfolio website to make dynamic it.
 
-The purpose of this project is to consume this content (JSON Persona profile) in a portfolio developed with raw languages and hosted in github pages.
+The purpose of this project is manage the information of a static portfolio website developed with raw languages and hosted in github pages.
 
 ### Features:
 * Relational Database desing from Scratch
