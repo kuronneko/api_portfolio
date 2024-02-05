@@ -22,7 +22,7 @@ class PersonaController extends Controller
     public function index()
     {
         try {
-            $personas = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('user_id', Auth::user()->id)->get();
+            $personas = Persona::with(['user', 'city.country', 'skills.type', 'socials', 'projects.details'])->where('user_id', Auth::user()->id)->get();
             return response()->json($personas);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
@@ -47,30 +47,32 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $request->validate([
-                '*' => 'required'
-           ]);
+        $request->validate(['*' => 'required'] + ['lastname' => ''] ?? []);
 
-           $persona = Persona::create($request->merge(['user_id' => Auth::user()->id])->except('email','github','whatsapp'));
-           Social::create([
-               'name' => 'GitHub',
-               'content' => $request->github,
-               'persona_id' => $persona->id,
-           ]);
-           Social::create([
-               'name' => 'Email',
-               'content' => $request->email,
-               'persona_id' => $persona->id,
-           ]);
-           Social::create([
-               'name' => 'WhatsApp',
-               'content' => $request->whatsapp,
-               'persona_id' => $persona->id,
-           ]);
-           return response()->json([
-               'persona' => $persona,
-           ]);
+        try {
+            $persona = Persona::create($request->merge([
+                'user_id' => Auth::user()->id,
+                'lastname' => $request->input('lastname') ?? "",
+            ])->except('email', 'github', 'whatsapp'));
+
+            Social::create([
+                'name' => 'GitHub',
+                'content' => $request->github,
+                'persona_id' => $persona->id,
+            ]);
+            Social::create([
+                'name' => 'Email',
+                'content' => $request->email,
+                'persona_id' => $persona->id,
+            ]);
+            Social::create([
+                'name' => 'WhatsApp',
+                'content' => $request->whatsapp,
+                'persona_id' => $persona->id,
+            ]);
+            return response()->json([
+                'persona' => $persona,
+            ]);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
         }
@@ -91,30 +93,32 @@ class PersonaController extends Controller
         }
     }
 
-        /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function projects(Persona $persona){
+    public function projects(Persona $persona)
+    {
         //projects full filter
         //$projects = Project::with(['details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
         try {
-            $projects = Project::with(['persona','details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+            $projects = Project::with(['persona', 'details'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
             return response()->json($projects);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
         }
     }
 
-            /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function socials(Persona $persona){
+    public function socials(Persona $persona)
+    {
         try {
             $socials = Social::with(['persona'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
             return response()->json($socials);
@@ -123,22 +127,23 @@ class PersonaController extends Controller
         }
     }
 
-                /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function skills(Persona $persona){
+    public function skills(Persona $persona)
+    {
         try {
-            $skills = Skill::with(['persona','type'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
+            $skills = Skill::with(['persona', 'type'])->where('persona_id', Persona::where('id', $persona->id)->where('user_id', Auth::user()->id)->first()->id)->get();
             return response()->json($skills);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage());
         }
     }
 
-     /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -152,7 +157,7 @@ class PersonaController extends Controller
     }
     */
 
-        /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -161,10 +166,10 @@ class PersonaController extends Controller
     public function getActivePersona($uuid)
     {
         try {
-            $persona = Persona::with(['user','city.country','skills.type','socials','projects.details'])->where('status', 1)->where('user_id', User::where('uuid', $uuid)->first()->id)->first();
-            if($persona){
+            $persona = Persona::with(['user', 'city.country', 'skills.type', 'socials', 'projects.details'])->where('status', 1)->where('user_id', User::where('uuid', $uuid)->first()->id)->first();
+            if ($persona) {
                 return response()->json($persona);
-            }else{
+            } else {
                 return response()->json(['error' => 'You need to create/activate a persona profile']);
             }
         } catch (\Throwable $th) {
@@ -192,12 +197,15 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
-        try {
-            $request->validate([
-                '*' => 'required'
-            ]);
+        $request->validate(['*' => 'required'] + ['lastname' => ''] ?? []);
 
-            $persona->fill($request->merge(['user_id' => Auth::user()->id])->all())->save();
+        try {
+
+            $persona->fill($request->merge([
+                'user_id' => Auth::user()->id,
+                'lastname' => $request->input('lastname') ?? "",
+            ])->all())->save();
+
             return response()->json([
                 'persona' => $persona,
             ]);
@@ -206,7 +214,7 @@ class PersonaController extends Controller
         }
     }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -216,12 +224,12 @@ class PersonaController extends Controller
     public function status(Persona $persona)
     {
         try {
-            if($persona->status == 1){
+            if ($persona->status == 1) {
                 $persona->status = 0;
-            }else{
+            } else {
                 $persona->status = 1;
-                foreach(Persona::where('user_id', Auth::user()->id)->get() as $personas){
-                    if($personas != $persona){
+                foreach (Persona::where('user_id', Auth::user()->id)->get() as $personas) {
+                    if ($personas != $persona) {
                         $personas->status = 0;
                         $personas->save();
                     }
@@ -256,5 +264,4 @@ class PersonaController extends Controller
             return response()->json($th->getMessage());
         }
     }
-
 }
