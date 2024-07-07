@@ -39,8 +39,10 @@
     <div class="container mt-5 mb-3 py-4" id="app">
 
     </div>
-    <footer class="fixed-bottom bg-dark text-center text-white">PortfolioGestor9000 developed by <a
-            class="text-success text-decoration-none" href="https://kuronneko.github.io">kuronneko</a></footer>
+    <footer class="fixed-bottom bg-dark text-center text-white">This website is powered by <a
+            class="text-success text-decoration-none" href="https://cyberpunkwaifus.xyz" target="_black">CBPW Technologies.</a>
+    </footer>
+
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </body>

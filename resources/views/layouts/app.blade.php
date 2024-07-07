@@ -89,9 +89,9 @@
                 }
             </style>
         </main>
-        <footer class="fixed-bottom bg-dark text-center text-white">
-            <p class="small text-secondary">This website is powered by <a class="text-secondary" href="https://cyberpunkwaifus.xyz" target="_black">CBPW Technologies.</a></p>
-        </footer>
+        <footer class="fixed-bottom bg-dark text-center text-white">This website is powered by <a
+            class="text-success text-decoration-none" href="https://cyberpunkwaifus.xyz" target="_black">CBPW Technologies.</a>
+    </footer>
 
     </div>
 
