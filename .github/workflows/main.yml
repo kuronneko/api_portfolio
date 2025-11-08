@@ -1,0 +1,112 @@
+name: 🚀 Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # --- 🧩 Checkout source ---
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # --- 🧰 Set up PHP (for composer and Laravel) ---
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, bcmath, intl, pdo_mysql
+
+    - name: Install PHP dependencies
+      run: composer install --no-dev --optimize-autoloader
+
+    # --- 🧱 Build the frontend (Laravel Mix / Webpack) ---
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Cache npm dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+
+    - name: Install frontend dependencies and build (Webpack)
+      run: |
+        npm ci
+        npm run production
+      # 👆 This runs Mix to compile assets into /public/js and /public/css
+
+    # --- 🔐 Set up SSH connection ---
+    - name: Set up SSH
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        DIGITALOCEAN_HOST: ${{ secrets.DIGITALOCEAN_HOST }}
+        DIGITALOCEAN_PORT: ${{ secrets.DIGITALOCEAN_PORT }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p $DIGITALOCEAN_PORT $DIGITALOCEAN_HOST >> ~/.ssh/known_hosts
+
+    # --- 📤 Sync built project to DigitalOcean ---
+    - name: Sync files to DigitalOcean
+      env:
+        USER: ${{ secrets.DIGITALOCEAN_USER }}
+        HOST: ${{ secrets.DIGITALOCEAN_HOST }}
+        PORT: ${{ secrets.DIGITALOCEAN_PORT }}
+        REMOTE_DIR: ${{ secrets.DIGITALOCEAN_REMOTE_DIR }}
+      run: |
+        echo "📦 Syncing project files to $REMOTE_DIR ..."
+        rsync -avz --delete \
+          -e "ssh -p $PORT" \
+          --exclude="node_modules" \
+          --exclude="storage" \
+          --exclude=".env" \
+          --exclude=".git" \
+          --exclude=".github" \
+          --exclude="tests" \
+          ./ $USER@$HOST:$REMOTE_DIR
+
+    # --- ⚙️ Run deployment commands remotely ---
+    - name: Run Laravel deployment commands on server
+      env:
+        USER: ${{ secrets.DIGITALOCEAN_USER }}
+        HOST: ${{ secrets.DIGITALOCEAN_HOST }}
+        PORT: ${{ secrets.DIGITALOCEAN_PORT }}
+        REMOTE_DIR: ${{ secrets.DIGITALOCEAN_REMOTE_DIR }}
+      run: |
+        ssh -p $PORT $USER@$HOST << EOF
+          cd $REMOTE_DIR
+
+          # Ensure dependencies are up to date
+          composer install --no-dev --optimize-autoloader
+
+          # Run database migrations
+          php artisan migrate --force
+
+          # Clear and cache Laravel config, routes, and views
+          php artisan config:clear
+          php artisan route:clear
+          php artisan view:clear
+          php artisan cache:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+          # Set correct permissions
+          sudo chown -R $USER:www-data storage
+          sudo chown -R $USER:www-data bootstrap/cache
+          chmod -R 775 storage
+          chmod -R 775 bootstrap/cache
+
+          # Restart queue workers
+          php artisan queue:restart
+        EOF
